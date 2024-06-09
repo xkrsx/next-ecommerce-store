@@ -52,6 +52,5 @@ export const sql = connectOneTimeToDatabase();
 //     undefined: null,
 //   },
 // });
-
 // // // TODO remove end() before deployment
 // // await sql.end();

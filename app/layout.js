@@ -14,7 +14,7 @@ import Link from 'next/link';
 // });
 
 export const metadata = {
-  title: { default: "%Home | Bik E'Polo", template: "%s | Bik E'Polo" },
+  title: { default: "Home | Bik E'Polo", template: "%s | Bik E'Polo" },
   description:
     'Probably the best destination for any Bike Polo equipment in the world.',
 };
