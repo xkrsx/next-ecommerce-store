@@ -1,14 +1,6 @@
 import { cache } from 'react';
+import { Product } from '../migrations/00000-createTableProducts';
 import { sql } from './connect';
-
-type Product = {
-  id: number;
-  name: string;
-  category: string;
-  description: string;
-  price: number;
-  count: number;
-};
 
 export const getAllProductsInsecure = cache(async () => {
   const products = await sql<Product[]>`
@@ -35,3 +27,29 @@ export const getSingleProductInsecure = cache(async (id: number) => {
 });
 
 // TODO add other functions: create, update, delete for products
+
+export const createProductInsecure = cache(
+  async (newProduct: Omit<Product, 'id'>) => {
+    const [product] = await sql<Product[]>`
+      INSERT INTO
+        products (
+          name,
+          category,
+          description,
+          price,
+          COUNT
+        )
+      VALUES
+        (
+          '${newProduct.name}',
+          '${newProduct.category}',
+          '${newProduct.description}',
+          ${newProduct.price},
+          ${newProduct.count}
+        )
+      RETURNING
+        products.*
+    `;
+    return product;
+  },
+);

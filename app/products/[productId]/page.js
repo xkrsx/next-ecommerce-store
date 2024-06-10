@@ -26,12 +26,12 @@ export default async function ProductPage(props) {
       <h1>{product.name}</h1>
       <div>
         <div key={`product-${product.id}`}>
-          <Image src={' '} alt="" width={300} height={300} />
-          <div>{product.name}</div>
-          <div>{product.category}</div>
-          <div>price: {product.price}</div>
-          <div>quantity: {product.count}</div>
-          <div>{product.description}</div>
+          {/* <Image src={' '} alt="" width={300} height={300} /> */}
+          <div>Name: {product.name}</div>
+          <div>Category: {product.category}</div>
+          <div>Price: {product.price} €</div>
+          {/* <div>quantity: {product.count}</div> */}
+          <div>Description:{product.description}</div>
         </div>
       </div>
     </>
