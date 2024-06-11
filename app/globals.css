@@ -22,6 +22,10 @@ body {
   color: var(--primary-font-color);
   background: var(--primary-background-color);
   font-family: var(--primary-font-style);
+
+  h1 {
+    text-transform: uppercase;
+  }
 }
 
 a {

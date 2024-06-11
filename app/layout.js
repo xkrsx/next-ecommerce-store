@@ -1,17 +1,7 @@
 import './globals.css';
+import './layout.scss';
+import Footer from './common/Footer/Footer';
 import Header from './common/Header/Header';
-
-// import localFont from 'next/font/local';
-// const geistSans = localFont({
-//   src: './fonts/GeistVF.woff',
-//   variable: '--font-geist-sans',
-//   weight: '100 900',
-// });
-// const geistMono = localFont({
-//   src: './fonts/GeistMonoVF.woff',
-//   variable: '--font-geist-mono',
-//   weight: '100 900',
-// });
 
 export const metadata = {
   title: { default: "Home | Bik E'Polo", template: "%s | Bik E'Polo" },
@@ -22,12 +12,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-      //  className={`${geistSans.variable} ${geistMono.variable}`}
-      >
+      <body>
         <Header />
-        {children}
-        <footer>Created by Kryzys</footer>
+        <div className="children">{children}</div>
+
+        <Footer />
       </body>
     </html>
   );

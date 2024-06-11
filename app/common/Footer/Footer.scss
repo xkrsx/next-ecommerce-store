@@ -1,0 +1,21 @@
+.footer-wrapper {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--primary-background-color);
+  width: 100%;
+
+  .footer {
+    display: flex;
+    width: 100%;
+    padding: 0 0.8rem;
+
+    .nav-bottom {
+      .nav-column {
+        padding-right: 1rem;
+        ul {
+          list-style: none;
+        }
+      }
+    }
+  }
+}

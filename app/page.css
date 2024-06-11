@@ -1,0 +1,15 @@
+.home-wrapper {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  .main {
+    position: fixed;
+    background-image: url('../public/images/background.webp');
+    background-size: cover;
+    padding: 0;
+    width: 100vw;
+    height: 75vh;
+  }
+}
