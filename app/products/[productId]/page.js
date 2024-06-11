@@ -30,14 +30,13 @@ export default async function ProductPage(props) {
         <div key={`product-${product.id}`}>
           <Image
             src={`/images/${product.name}.webp`}
-            alt="Mallet"
+            alt={product.name}
             width={300}
             height={300}
           />
           <div>Name: {product.name}</div>
           <div>Category: {product.category}</div>
           <div>Price: {product.price} €</div>
-          {/* <div>quantity: {product.count}</div> */}
           <div>Description:{product.description}</div>
         </div>
       </div>
