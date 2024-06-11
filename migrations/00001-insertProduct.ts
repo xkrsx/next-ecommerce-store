@@ -94,7 +94,7 @@ export async function down(sql: Sql) {
     await sql`
       DELETE FROM products
       WHERE
-        id = ${product.id}
+        products.id = ${product.id}
     `;
   }
 }

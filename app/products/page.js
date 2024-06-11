@@ -15,7 +15,7 @@ export default async function Products() {
                 <div>{product.name}</div>
                 <Image
                   src={`/images/${product.name}.webp`}
-                  alt="Mallet"
+                  alt={product.name}
                   width={300}
                   height={300}
                 />

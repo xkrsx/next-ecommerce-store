@@ -1,5 +1,5 @@
 import './globals.css';
-import Link from 'next/link';
+import Header from './common/Header/Header';
 
 // import localFont from 'next/font/local';
 // const geistSans = localFont({
@@ -25,15 +25,7 @@ export default function RootLayout({ children }) {
       <body
       //  className={`${geistSans.variable} ${geistMono.variable}`}
       >
-        <header>
-          <nav>
-            <Link href="/">Home</Link>
-            <Link href="/products">Products</Link>
-            <Link href="/about">About</Link>
-            <Link href="/account">Account</Link>
-            <Link href="/cart">Cart</Link>
-          </nav>
-        </header>
+        <Header />
         {children}
         <footer>Created by Kryzys</footer>
       </body>
