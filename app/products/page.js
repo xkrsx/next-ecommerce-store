@@ -13,7 +13,12 @@ export default async function Products() {
             <div key={`product-${product.id}`}>
               <Link href={`/products/${product.id}`}>
                 <div>{product.name}</div>
-                {/* <Image src={' '} alt="" width={300} height={300} /> */}
+                <Image
+                  src={`/images/${product.name}.webp`}
+                  alt="Mallet"
+                  width={300}
+                  height={300}
+                />
               </Link>
             </div>
           );
