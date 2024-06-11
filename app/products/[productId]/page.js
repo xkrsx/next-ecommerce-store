@@ -21,6 +21,8 @@ export default async function ProductPage(props) {
   if (!product) {
     notFound();
   }
+  // TODO change image names to id/slug
+
   return (
     <>
       <h1>{product.name}</h1>
