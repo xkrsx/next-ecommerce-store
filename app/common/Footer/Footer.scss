@@ -17,7 +17,7 @@
 
     .nav-bottom {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       width: 30%;
       .nav-column {
         padding-right: 1rem;
@@ -30,6 +30,7 @@
     .options {
       display: flex;
       justify-content: space-around;
+      align-items: center;
       width: 20%;
 
       ul {
