@@ -1,0 +1,64 @@
+// .add-to-cart {
+//   // padding: 0.8rem 0.8rem 0.8rem auto;
+//   border-style: 0.1rem solid var(--primary-font-color);
+
+label {
+  display: flex;
+
+  align-items: baseline;
+
+  .quantity-input-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    align-items: center;
+    height: 3.5rem;
+    padding: 0.8rem;
+
+    .change-quantity-button {
+      height: 2.2rem;
+      width: 2.2rem;
+      border-radius: 50%;
+      border: 1px dotted var(--primary-font-color);
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+    }
+
+    .increase {
+      background-color: var(--primary-accept-color);
+      opacity: 60%;
+
+      &:hover {
+        opacity: 80%;
+        color: var(--secondary-font-color);
+        border: 1px solid var(--primary-font-color);
+      }
+    }
+
+    .quantity-input {
+      width: 3rem;
+      text-align: center;
+      font-weight: 700;
+      line-height: 2.2rem;
+    }
+  }
+
+  .add-to-cart-button {
+    font-weight: 500;
+    padding: 0.8rem 2.4rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid var(--primary-font-color);
+    background-color: var(--primary-accept-color);
+    opacity: 65%;
+    color: var(--primary-font-color);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 110%;
+      color: var(--secondary-font-color);
+      border: 0.1rem solid var(--primary-accept-color);
+    }
+  }
+}
+// }

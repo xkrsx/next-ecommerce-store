@@ -1,3 +1,4 @@
+import './page.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getAllProductsInsecure } from '../../database/products';
@@ -5,20 +6,27 @@ import { getAllProductsInsecure } from '../../database/products';
 export default async function Products() {
   const products = await getAllProductsInsecure();
   return (
-    <>
-      <h1>Products</h1>
-      <div>
+    <div className="products-wrapper">
+      <h1>all products</h1>
+      <div className="all-products">
         {products.map((product) => {
           return (
-            <div key={`product-${product.id}`}>
+            <div className="single-product" key={`product-${product.id}`}>
               <Link href={`/products/${product.id}`}>
-                <div>{product.name}</div>
-                {/* <Image src={' '} alt="" width={300} height={300} /> */}
+                <div className="product-image">
+                  <Image
+                    src={`/images/products/${product.name}/1.webp`}
+                    alt={product.name}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <div className="product-name">{product.name}</div>
               </Link>
             </div>
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
