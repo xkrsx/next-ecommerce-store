@@ -1,0 +1,26 @@
+.add-to-cart {
+  height: 5rem;
+  padding: 0.8rem;
+  border-style: 0.1rem solid var(--primary-font-color);
+
+  form {
+    .quantity-input {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 3.5rem;
+      padding: 0.8rem;
+
+      button {
+        height: 2.2rem;
+        width: 2.2rem;
+        border-radius: 50%;
+      }
+
+      input: {
+        line-height: 2.2rem;
+        padding: 0.8rem;
+      }
+    }
+  }
+}

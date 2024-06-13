@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getSingleProductInsecure } from '../../../database/products';
-import AddToCart from '../../common/AddToCart/page';
+import AddToCart from '../../common/AddToCart/AddToCart';
 
 export async function generateMetadata(props) {
   const singleProduct = await getSingleProductInsecure(
@@ -57,7 +57,7 @@ export default async function ProductPage(props) {
                 <li>Description: {product.description}</li>
               </ul>
             </div>
-            <AddToCart />
+            <AddToCart quantityDB={product.quantity} />
           </div>
         </div>
       </div>
