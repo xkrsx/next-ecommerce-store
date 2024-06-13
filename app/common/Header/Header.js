@@ -1,8 +1,14 @@
+'use client';
 import './Header.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
+
+// import { getCookies } from './actions';
 
 export default function Header() {
+  const [isVisible, setIsVisible] = useState(0);
+
   return (
     <div className="header-wrapper">
       <div className="header">
