@@ -1,33 +1,22 @@
 'use client';
 import './AddToCart.scss';
 import { useState } from 'react';
+import { createOrUpdateCookie } from './actions';
 
-export default function AddToCart({ count }) {
-  const [cartQuantity, setCartQuantity] = useState({
-    quantityInput: 0,
-    isDisabled: true,
-  });
+export default function AddToCart({ count, productId }) {
+  const [cartQuantity, setCartQuantity] = useState(0);
 
   function changeQuantityButtons(inputName) {
     if (inputName === 'increaseQuantity') {
-      setCartQuantity({
-        quantityInput: ++cartQuantity.quantityInput,
-        isDisabled: false,
-      });
-      return console.log('increase: ', cartQuantity.quantityInput);
+      return setCartQuantity(cartQuantity + 1);
     }
     if (inputName === 'decreaseQuantity') {
-      if (cartQuantity.quantityInput - 1 >= 0) {
-        setCartQuantity({
-          quantityInput: --cartQuantity.quantityInput,
-        });
-        return console.log('decrease >= 1: ', cartQuantity.quantityInput);
+      console.log('decrease');
+      if (cartQuantity - 1 >= 0) {
+        return setCartQuantity(cartQuantity - 1);
       }
-      if (cartQuantity.quantityInput - 1 === 0) {
-        return setCartQuantity({
-          quantityInput: --cartQuantity.quantityInput,
-          isDisabled: true,
-        });
+      if (cartQuantity - 1 === 0) {
+        return setCartQuantity(cartQuantity - 1);
       }
     }
   }
@@ -45,17 +34,14 @@ export default function AddToCart({ count }) {
 
   return (
     <div className="add-to-cart">
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-        }}
-      >
+      <form>
         <label>
           <span className="quantity-label">Quantity:</span>
           <div className="quantity-input-buttons">
             <button
               className="change-quantity-button decrease"
-              disabled={cartQuantity.isDisabled}
+              style={{ cursor: !cartQuantity ? 'not-allowed' : 'pointer' }}
+              disabled={!cartQuantity}
               onClick={handleQuantityChange}
               name="decreaseQuantity"
             >
@@ -73,7 +59,7 @@ export default function AddToCart({ count }) {
               type="number"
               min="0"
               max={`${count}`}
-              value={`${cartQuantity.quantityInput}`}
+              value={`${cartQuantity}`}
               onChange={handleQuantityChange}
             />
 
@@ -87,7 +73,11 @@ export default function AddToCart({ count }) {
           </div>
 
           <button
-            onSubmit={(event) => event.preventDefault()}
+            disabled={!cartQuantity}
+            style={{ cursor: !cartQuantity ? 'not-allowed' : 'pointer' }}
+            formAction={async () =>
+              await createOrUpdateCookie(productId, cartQuantity)
+            }
             className="add-to-cart-button"
           >
             Add to cart

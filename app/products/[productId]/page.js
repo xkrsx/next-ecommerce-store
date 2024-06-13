@@ -77,7 +77,10 @@ export default async function ProductPage(props) {
                 </li>
               </ul>
             </div>
-            <AddToCart count={product.count} />
+            <AddToCart
+              count={product.count}
+              productId={Number(props.params.productId)}
+            />
           </div>
         </div>
       </div>
