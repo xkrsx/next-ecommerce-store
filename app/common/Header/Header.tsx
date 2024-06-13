@@ -1,4 +1,5 @@
 import './Header.scss';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Header() {
@@ -23,7 +24,13 @@ export default function Header() {
         </div>
         <div className="logo">
           <Link href="/">
-            <span>Bik E'Polo</span>
+            <Image
+              src="/images/logo-long380x80.webp"
+              width="190"
+              height="40"
+              alt="Bik E'Polo"
+            />
+            {/* <span>Bik E'Polo</span> */}
           </Link>
         </div>
         <div className="nav right">

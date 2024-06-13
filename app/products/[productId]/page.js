@@ -51,13 +51,33 @@ export default async function ProductPage(props) {
           <div className="product-info-add-to-cart">
             <div className="product-info">
               <ul>
-                <li>Name: {product.name}</li>
-                <li>Category: {product.category}</li>
-                <li>Price: {product.price} €</li>
-                <li>Description: {product.description}</li>
+                <li>
+                  Name: <strong className="product-name">{product.name}</strong>
+                </li>
+                <li>
+                  Category:{' '}
+                  <Link
+                    className="product-category"
+                    href={`/${product.category}`}
+                  >
+                    {product.category}
+                  </Link>
+                </li>
+                <li>
+                  Price:{' '}
+                  <strong className="product-price">{product.price}</strong> €
+                </li>
+                <li>
+                  In stock:{' '}
+                  <strong className="product-count">{product.count}</strong>
+                </li>
+                <li>
+                  Description:{' '}
+                  <p className="product-description">{product.description}</p>
+                </li>
               </ul>
             </div>
-            <AddToCart quantityDB={product.quantity} />
+            <AddToCart count={product.count} />
           </div>
         </div>
       </div>

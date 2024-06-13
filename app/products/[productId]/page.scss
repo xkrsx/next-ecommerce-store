@@ -1,5 +1,7 @@
 .product {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 
   .url-path {
     font-size: 0.8rem;
@@ -8,89 +10,41 @@
   .product-image-info {
     display: flex;
     justify-content: center;
-    gap: 3.2rem;
+    align-self: center;
+    height: 35rem;
+    width: 90%;
 
     .product-image {
       position: relative;
       border-radius: 0.5rem;
-      height: 20rem;
-      width: 20rem;
+      height: 100%;
+      width: 100%;
       overflow: hidden;
     }
 
     .product-info-add-to-cart {
       display: flex;
       flex-direction: column;
-      ul {
-        list-style: none;
-      }
-      .add-to-cart {
-        .quantity {
-          position: relative;
-        }
+      width: 50%;
 
-        input[type='number']::-webkit-inner-spin-button,
-        input[type='number']::-webkit-outer-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
-        }
+      .product-info {
+        width: 100%;
 
-        input[type='number'] {
-          -moz-appearance: textfield;
-        }
+        ul {
+          list-style: none;
 
-        .quantity input {
-          width: 45px;
-          height: 42px;
-          line-height: 1.65;
-          float: left;
-          display: block;
-          padding: 0;
-          margin: 0;
-          padding-left: 20px;
-          border: 1px solid #eee;
-        }
+          .product-name {
+            text-transform: capitalize;
+          }
+          .product-category {
+            text-decoration: underline;
+          }
 
-        .quantity input:focus {
-          outline: 0;
-        }
-
-        .quantity-nav {
-          float: left;
-          position: relative;
-          height: 42px;
-        }
-
-        .quantity-button {
-          position: relative;
-          cursor: pointer;
-          border-left: 1px solid #eee;
-          width: 20px;
-          text-align: center;
-          color: #333;
-          font-size: 13px;
-          font-family: 'Trebuchet MS', Helvetica, sans-serif !important;
-          line-height: 1.7;
-          -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          -o-user-select: none;
-          user-select: none;
-        }
-
-        .quantity-button.quantity-up {
-          position: absolute;
-          height: 50%;
-          top: 0;
-          border-bottom: 1px solid #eee;
-        }
-
-        .quantity-button.quantity-down {
-          position: absolute;
-          bottom: -1px;
-          height: 50%;
+          .product-description {
+            padding: 0.8rem;
+            line-height: 1.5rem;
+            font-style: italic;
+          }
         }
       }
     }

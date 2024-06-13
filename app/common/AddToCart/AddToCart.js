@@ -2,7 +2,7 @@
 import './AddToCart.scss';
 import { useState } from 'react';
 
-export default function AddToCart({ quantityDB }) {
+export default function AddToCart({ count }) {
   const [cartQuantity, setCartQuantity] = useState({
     quantityInput: 0,
     isDisabled: true,
@@ -51,14 +51,11 @@ export default function AddToCart({ quantityDB }) {
         }}
       >
         <label>
-          <strong className="quantity-label">Quantity</strong>
+          <span className="quantity-label">Quantity:</span>
           <div className="quantity-input-buttons">
             <button
               className="change-quantity-button decrease"
               disabled={cartQuantity.isDisabled}
-              // disabled
-              // `${cartQuantity.isDisabled}` }}
-
               onClick={handleQuantityChange}
               name="decreaseQuantity"
             >
@@ -67,8 +64,6 @@ export default function AddToCart({ quantityDB }) {
 
             {/*
           // TODO + and - buttons styling
-          // TODO adjust max quantity possible to add to cart with DB quantity
-          // props: {quantityDB}
           add to cart functionality
           */}
 
@@ -77,6 +72,7 @@ export default function AddToCart({ quantityDB }) {
               name="changeQuantityInput"
               type="number"
               min="0"
+              max={`${count}`}
               value={`${cartQuantity.quantityInput}`}
               onChange={handleQuantityChange}
             />

@@ -1,4 +1,5 @@
 import './Footer.scss';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -6,6 +7,16 @@ export default function Footer() {
     <div className="footer-wrapper">
       <div className="footer">
         <div className="nav-bottom">
+          <div className="nav-column">
+            <Link href="/">
+              <Image
+                src="/images/logo-square50x50.webp"
+                alt="Logo Bik E'Polo"
+                width="50"
+                height="50"
+              />
+            </Link>
+          </div>
           <div className="nav-column">
             <h4>Buy</h4>
             <ul>
@@ -78,8 +89,6 @@ export default function Footer() {
               </svg>
             </li>
           </ul>
-          {/* <span>Shipping options</span> */}
-          {/* </div> */}
         </div>
       </div>
     </div>
