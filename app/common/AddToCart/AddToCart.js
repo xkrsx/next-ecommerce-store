@@ -3,16 +3,67 @@ import './AddToCart.scss';
 import { useState } from 'react';
 
 export default function AddToCart({ quantityDB }) {
-  const [cartQuantity, setCartQuantity] = useState(0);
+  const [cartQuantity, setCartQuantity] = useState({
+    quantityInput: 0,
+    isDisabled: true,
+  });
+
+  function changeQuantityButtons(inputName) {
+    if (inputName === 'increaseQuantity') {
+      setCartQuantity({
+        quantityInput: ++cartQuantity.quantityInput,
+        isDisabled: false,
+      });
+      return console.log('increase: ', cartQuantity.quantityInput);
+    }
+    if (inputName === 'decreaseQuantity') {
+      if (cartQuantity.quantityInput - 1 >= 0) {
+        setCartQuantity({
+          quantityInput: --cartQuantity.quantityInput,
+        });
+        return console.log('decrease >= 1: ', cartQuantity.quantityInput);
+      }
+      if (cartQuantity.quantityInput - 1 === 0) {
+        return setCartQuantity({
+          quantityInput: --cartQuantity.quantityInput,
+          isDisabled: true,
+        });
+      }
+    }
+  }
+
+  const handleQuantityChange = (event) => {
+    event.preventDefault();
+
+    if (event.target.name === 'changeQuantityInput') {
+      setCartQuantity({ quantityInput: Number(event.currentTarget.value) });
+    }
+    if (event.target.type === 'submit') {
+      changeQuantityButtons(event.target.name);
+    }
+  };
 
   return (
     <div className="add-to-cart">
-      <form>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+      >
         <label>
-          Quantity
-          <br />
-          <div className="quantity-input">
-            <button>-</button>
+          <strong className="quantity-label">Quantity</strong>
+          <div className="quantity-input-buttons">
+            <button
+              className="change-quantity-button decrease"
+              disabled={cartQuantity.isDisabled}
+              // disabled
+              // `${cartQuantity.isDisabled}` }}
+
+              onClick={handleQuantityChange}
+              name="decreaseQuantity"
+            >
+              -
+            </button>
 
             {/*
           // TODO + and - buttons styling
@@ -22,21 +73,29 @@ export default function AddToCart({ quantityDB }) {
           */}
 
             <input
-              style={{
-                width: '1.6rem',
-                textAlign: 'center',
-                height: '1.6rem',
-                fontWeight: 700,
-              }}
+              className="quantity-input"
+              name="changeQuantityInput"
               type="number"
-              min="1"
-              // step="1"
-              value={`${cartQuantity}`}
-              onChange={(event) => event.preventDefault()}
+              min="0"
+              value={`${cartQuantity.quantityInput}`}
+              onChange={handleQuantityChange}
             />
 
-            <button>+</button>
+            <button
+              className="change-quantity-button increase"
+              onClick={handleQuantityChange}
+              name="increaseQuantity"
+            >
+              +
+            </button>
           </div>
+
+          <button
+            onSubmit={(event) => event.preventDefault()}
+            className="add-to-cart-button"
+          >
+            Add to cart
+          </button>
         </label>
       </form>
     </div>
