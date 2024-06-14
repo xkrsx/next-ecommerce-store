@@ -8,7 +8,6 @@ import { getCartCountFromCookies } from '../../../utils/cookies';
 export default function Header() {
   const [cartCount, setCartCount] = useState(0);
 
-  // const cartCount = await getCartCountFromCookies();
   useEffect(async () => {
     async function getCookies() {
       const awaitedCookies = await getCartCountFromCookies();
