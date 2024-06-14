@@ -2,10 +2,19 @@
 import './Header.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getCartCountFromCookies } from './actions';
+import { useEffect, useState } from 'react';
+import { getCartCountFromCookies } from '../../../utils/cookies';
 
 export default function Header() {
-  const cartCount = getCartCountFromCookies();
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(async () => {
+    async function getCookies() {
+      const awaitedCookies = await getCartCountFromCookies();
+      setCartCount(awaitedCookies[0].count);
+    }
+    await getCookies();
+  }, []);
 
   return (
     <div className="header-wrapper">
