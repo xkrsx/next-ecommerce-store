@@ -1,7 +1,7 @@
 'use client';
 import './AddToCart.scss';
 import { useState } from 'react';
-import { createCookieWithCountCookie } from '../../../utils/cookies';
+import { createCookieWithCount } from '../../../utils/cookies';
 
 export default function AddToCart({ count, productId }) {
   const [cartQuantity, setCartQuantity] = useState(0);
@@ -76,7 +76,7 @@ export default function AddToCart({ count, productId }) {
             disabled={!cartQuantity}
             style={{ cursor: !cartQuantity ? 'not-allowed' : 'pointer' }}
             formAction={async () =>
-              await createCookieWithCountCookie(productId, cartQuantity)
+              await createCookieWithCount(productId, cartQuantity)
             }
             className="add-to-cart-button"
           >
