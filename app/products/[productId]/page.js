@@ -11,8 +11,8 @@ export async function generateMetadata(props) {
   );
 
   return {
-    title: `${singleProduct?.name} on Bik E'Polo`,
-    description: `Buy ${singleProduct?.name} now at Bik E'Polo!`,
+    title: `Buy ${singleProduct?.name} on Bik E'Polo`,
+    description: `Get your new ${singleProduct?.name} from Bik E'Polo now and enjoy your game even more.`,
   };
 }
 
@@ -77,7 +77,10 @@ export default async function ProductPage(props) {
                 </li>
               </ul>
             </div>
-            <AddToCart count={product.count} />
+            <AddToCart
+              count={product.count}
+              productId={Number(props.params.productId)}
+            />
           </div>
         </div>
       </div>

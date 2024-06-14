@@ -7,15 +7,19 @@ export default function Footer() {
     <div className="footer-wrapper">
       <div className="footer">
         <div className="nav-bottom">
-          <div className="nav-column">
-            <Link href="/">
-              <Image
-                src="/images/logo-square50x50.webp"
-                alt="Logo Bik E'Polo"
-                width="50"
-                height="50"
-              />
-            </Link>
+          <div className="options">
+            <ul>
+              <li>
+                <Link href="/">
+                  <Image
+                    src="/images/logo-square50x50.webp"
+                    alt="Logo Bik E'Polo"
+                    width="50"
+                    height="50"
+                  />
+                </Link>
+              </li>
+            </ul>
           </div>
           <div className="nav-column">
             <h4>Buy</h4>
@@ -49,7 +53,7 @@ export default function Footer() {
             <h4>About</h4>
             <ul>
               <li>
-                <Link href="/about/bike-polo">Bike polo</Link>
+                <Link href="/about/bike-polo">Bike Polo</Link>
               </li>
               <li>
                 <Link href="/about/bik-e-polo">Bik E'Polo</Link>
@@ -61,7 +65,6 @@ export default function Footer() {
           </div>
         </div>
         <div className="options">
-          {/* <div className="payment-options"> */}
           <ul>
             <li>
               <svg
@@ -73,9 +76,6 @@ export default function Footer() {
               >
                 <path d="M880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720Zm-720 80h640v-80H160v80Zm0 160v240h640v-240H160Zm0 240v-480 480Z" />
               </svg>
-              {/* <span>Payment options</span> */}
-              {/* </div>
-          <div className="shipping-options"> */}
             </li>
             <li>
               <svg
