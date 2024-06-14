@@ -6,7 +6,7 @@ import { getCartCountFromCookies } from './actions';
 
 export default function Header() {
   const cartCount = getCartCountFromCookies();
-  console.log(cartCount);
+
   return (
     <div className="header-wrapper">
       <div className="header">
