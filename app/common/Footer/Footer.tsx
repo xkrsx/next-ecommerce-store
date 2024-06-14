@@ -53,7 +53,7 @@ export default function Footer() {
             <h4>About</h4>
             <ul>
               <li>
-                <Link href="/about/bike-polo">Bike polo</Link>
+                <Link href="/about/bike-polo">Bike Polo</Link>
               </li>
               <li>
                 <Link href="/about/bik-e-polo">Bik E'Polo</Link>

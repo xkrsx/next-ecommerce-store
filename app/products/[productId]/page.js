@@ -11,8 +11,8 @@ export async function generateMetadata(props) {
   );
 
   return {
-    title: `${singleProduct?.name} on Bik E'Polo`,
-    description: `Buy ${singleProduct?.name} now at Bik E'Polo!`,
+    title: `Buy ${singleProduct?.name} on Bik E'Polo`,
+    description: `Get your new ${singleProduct?.name} from Bik E'Polo now and enjoy your game even more.`,
   };
 }
 

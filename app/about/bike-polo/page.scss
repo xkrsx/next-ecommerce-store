@@ -1,0 +1,42 @@
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .url-path {
+    font-size: 0.8rem;
+  }
+
+  .video-description {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 35rem;
+    width: 90%;
+
+    .video {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+    }
+
+    .description {
+      padding: 0.8rem 1.6rem;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+
+      p {
+        padding-bottom: 0.8rem;
+      }
+
+      ul {
+        list-style: none;
+
+        p {
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
