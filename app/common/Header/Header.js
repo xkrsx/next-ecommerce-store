@@ -8,6 +8,7 @@ import { getCartCountFromCookies } from '../../../utils/cookies';
 export default function Header() {
   const [cartCount, setCartCount] = useState(0);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     async function getCookies() {
       const awaitedCookies = await getCartCountFromCookies();

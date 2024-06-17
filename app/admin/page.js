@@ -1,3 +1,7 @@
+export default function Account() {
+  return <h1>Account</h1>;
+}
+
 // export default function Admin() {
 //   async function addNewProduct() {
 //     const [newProduct, setNewProduct] = useState({

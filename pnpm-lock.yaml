@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@ts-safeql/eslint-plugin':
-        specifier: ^3.3.0
-        version: 3.3.0(eslint@9.4.0)(libpg-query@15.2.0(encoding@0.1.13))(typescript@5.4.5)
       '@upleveled/ley':
         specifier: ^0.8.6
         version: 0.8.6
@@ -39,6 +36,9 @@ importers:
         specifier: ^4.13.2
         version: 4.13.2
     devDependencies:
+      '@ts-safeql/eslint-plugin':
+        specifier: ^3.3.0
+        version: 3.3.0(eslint@9.4.0)(libpg-query@15.2.0(encoding@0.1.13))(typescript@5.4.5)
       '@types/dotenv-safe':
         specifier: ^8.1.6
         version: 8.1.6
