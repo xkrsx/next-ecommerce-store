@@ -6,16 +6,11 @@ import { parseJson } from '../../../util/json';
 
 export default function Header() {
   const cartCountCookie = getCookie('cart');
-
   const cartCounts = !cartCountCookie ? [] : parseJson(cartCountCookie);
-
   const onlyCounts = cartCounts.map((product) => {
     return product.count;
   });
-
   const cartTotalCount = onlyCounts.reduce((acc, cur) => acc + cur, 0);
-
-  console.log(cartTotalCount);
 
   return (
     <div className="header-wrapper">
