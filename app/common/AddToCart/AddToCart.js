@@ -1,9 +1,10 @@
 'use client';
 import './AddToCart.scss';
 import { useState } from 'react';
-import { createCookieWithCount } from '../../../utils/cookies';
+// import { createCookieWithCount } from '../../../utils/cookies';
+import { createOrUpdateCookie } from './actions.ts';
 
-export default function AddToCart({ count, productId }) {
+export default function AddToCart({ stockCount, productId }) {
   const [cartQuantity, setCartQuantity] = useState(0);
 
   function changeQuantityButtons(inputName) {
@@ -15,21 +16,21 @@ export default function AddToCart({ count, productId }) {
       if (cartQuantity - 1 >= 0) {
         return setCartQuantity(cartQuantity - 1);
       }
-      if (cartQuantity - 1 === 0) {
-        return setCartQuantity(cartQuantity - 1);
-      }
+      // if (cartQuantity - 1 === 0) {
+      //   return setCartQuantity(cartQuantity - 1);
+      // }
     }
   }
 
   const handleQuantityChange = (event) => {
     event.preventDefault();
 
-    if (event.target.name === 'changeQuantityInput') {
-      setCartQuantity({ quantityInput: Number(event.currentTarget.value) });
-    }
     if (event.target.type === 'submit') {
       changeQuantityButtons(event.target.name);
     }
+    // if (event.target.name === 'changeQuantityInput') {
+    //   setCartQuantity({ quantityInput: Number(event.currentTarget.value) });
+    // }
   };
 
   return (
@@ -48,24 +49,23 @@ export default function AddToCart({ count, productId }) {
               -
             </button>
 
-            {/*
-          // TODO + and - buttons styling
-          add to cart functionality
-          */}
-
             <input
               className="quantity-input"
               name="changeQuantityInput"
               type="number"
+              disabled
               min="0"
-              max={`${count}`}
-              value={`${cartQuantity}`}
-              onChange={handleQuantityChange}
+              max={stockCount}
+              value={cartQuantity}
             />
 
             <button
               className="change-quantity-button increase"
               onClick={handleQuantityChange}
+              disabled={cartQuantity >= stockCount}
+              style={{
+                cursor: cartQuantity >= stockCount ? 'not-allowed' : 'pointer',
+              }}
               name="increaseQuantity"
             >
               +
@@ -76,7 +76,7 @@ export default function AddToCart({ count, productId }) {
             disabled={!cartQuantity}
             style={{ cursor: !cartQuantity ? 'not-allowed' : 'pointer' }}
             formAction={async () =>
-              await createCookieWithCount(productId, cartQuantity)
+              await createOrUpdateCookie(productId, cartQuantity)
             }
             className="add-to-cart-button"
           >

@@ -1,21 +1,16 @@
-'use client';
 import './Header.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { getCartCountFromCookies } from '../../../utils/cookies';
+import { getCookie } from '../../../util/cookies';
+import { parseJson } from '../../../util/json';
 
 export default function Header() {
-  const [cartCount, setCartCount] = useState(0);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(async () => {
-    async function getCookies() {
-      const awaitedCookies = await getCartCountFromCookies();
-      setCartCount(awaitedCookies[0].count);
-    }
-    await getCookies();
-  }, []);
+  const cartCountCookie = getCookie('cart');
+  const cartCounts = !cartCountCookie ? [] : parseJson(cartCountCookie);
+  const onlyCounts = cartCounts.map((product) => {
+    return product.count;
+  });
+  const cartTotalCount = onlyCounts.reduce((acc, cur) => acc + cur, 0);
 
   return (
     <div className="header-wrapper">
@@ -42,9 +37,8 @@ export default function Header() {
               src="/images/logo-long380x80.webp"
               width="190"
               height="40"
-              alt="Bik E'Polo"
+              alt="Bik E'Polo Logo"
             />
-            {/* <span>Bik E'Polo</span> */}
           </Link>
         </div>
         <div className="nav right">
@@ -112,7 +106,7 @@ export default function Header() {
                 >
                   <path d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z" />
                 </svg>
-                <span className="cartCount">{cartCount}</span>
+                <span className="cartCount">{cartTotalCount}</span>
               </Link>
             </li>
           </ul>

@@ -11,7 +11,7 @@ export async function generateMetadata(props) {
   );
 
   return {
-    title: `Buy ${singleProduct?.name} on Bik E'Polo`,
+    title: `Buy a new ${singleProduct?.name} on Bik E'Polo`,
     description: `Get your new ${singleProduct?.name} from Bik E'Polo now and enjoy your game even more.`,
   };
 }
@@ -24,7 +24,7 @@ export default async function ProductPage(props) {
   if (!product) {
     notFound();
   }
-  // TODO change image url to id/slug
+  // TODO change image url to slug
 
   return (
     <div className="product-wrapper">
@@ -78,7 +78,7 @@ export default async function ProductPage(props) {
               </ul>
             </div>
             <AddToCart
-              count={product.count}
+              stockCount={product.count}
               productId={Number(props.params.productId)}
             />
           </div>
