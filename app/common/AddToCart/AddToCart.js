@@ -48,24 +48,24 @@ export default function AddToCart({ count, productId }) {
               -
             </button>
 
-            {/*
-          // TODO + and - buttons styling
-          add to cart functionality
-          */}
-
             <input
               className="quantity-input"
               name="changeQuantityInput"
               type="number"
+              disabled
               min="0"
               max={`${count}`}
-              value={`${cartQuantity}`}
+              value={cartQuantity}
               onChange={handleQuantityChange}
             />
 
             <button
               className="change-quantity-button increase"
               onClick={handleQuantityChange}
+              disabled={cartQuantity >= count}
+              style={{
+                cursor: cartQuantity >= count ? 'not-allowed' : 'pointer',
+              }}
               name="increaseQuantity"
             >
               +
