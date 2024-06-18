@@ -3,6 +3,10 @@
   justify-content: space-around;
   flex-wrap: wrap;
 
+  h2 {
+    padding: 0.8rem;
+  }
+
   .order,
   .payment {
     width: 45%;
@@ -26,6 +30,61 @@
     li {
       padding: 0.4rem;
       list-style: none;
+
+      label {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+          width: 16rem;
+          margin-right: 4.8rem;
+        }
+        strong {
+          color: var(--primary-error-color);
+        }
+      }
+    }
+  }
+  .payment-form {
+    border: 1px solid black;
+    border-radius: 1rem;
+    height: 100%;
+    width: 100%;
+
+    ul {
+      border: 0px;
+      background-color: lightblue;
+      border-radius: 0 0 1rem 1rem;
+    }
+  }
+
+  .cards {
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .pay-button {
+    margin-top: 0.8rem;
+    width: 100%;
+    padding: 0.4rem;
+    border-radius: 1rem;
+    line-height: 2.4rem;
+    background-color: var(--primary-accept-color);
+    color: var(--secondary-font-color);
+    opacity: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 100%;
     }
   }
 }
