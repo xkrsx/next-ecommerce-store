@@ -3,30 +3,31 @@ import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
 
 export default function Cart() {
-  const cartCountCookie = getCookie('cart');
-  const cartCounts = !cartCountCookie ? [] : parseJson(cartCountCookie);
+  const cookieCart = getCookie('cart');
+  const cart = !cookieCart ? [] : parseJson(cookieCart);
 
+  const productsValues = [];
   let cartValue;
 
-  function calculateCartValue() {
-    const productsValues = [];
-
-    cartCounts.map(async (product) => {
-      const productInfo = await getSingleProductInsecure(product.productId);
-      const singleProductValue = product.count * productInfo.price;
-      productsValues.push(singleProductValue);
-      cartValue = productsValues.reduce((acc, cur) => acc + cur, 0);
-      console.log(cartValue);
-    });
-  }
-  calculateCartValue();
+  const allValues = cart.map((product) => {
+    // const productInfo = await getSingleProductInsecure(product.productId);
+    const singleProductValue = product.count * 5;
+    productsValues.push(singleProductValue);
+    cartValue = productsValues.reduce((acc, cur) => acc + cur, 0);
+    console.log('0: ', productsValues);
+    console.log('1: ', cartValue);
+    return cartValue;
+  });
+  console.log('++: ', productsValues);
+  console.log('-: ', cartValue);
+  // console.log('2: ', allValues);
 
   return (
     <div className="cart-wrapper">
       <h1>Cart</h1>
       <div className="cart">
         <ul>
-          {cartCounts.map(async (product) => {
+          {cart.map(async (product) => {
             const productInfo = await getSingleProductInsecure(
               product.productId,
             );
@@ -43,7 +44,7 @@ export default function Cart() {
               </li>
             );
           })}
-          {/* total value: {console.log(calculateCartValue())} */}
+          total value:{' '}
         </ul>
       </div>
     </div>
