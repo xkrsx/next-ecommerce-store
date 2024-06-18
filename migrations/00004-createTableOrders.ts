@@ -1,11 +1,11 @@
 import { Sql } from 'postgres';
 
 export type Order = {
-  id: number;
-  customerId: string;
-  status: string;
-  products: string;
-  date: Date;
+  id: number | null;
+  customerId: number | null;
+  status: string | null;
+  products: string | null;
+  date: Date | null;
 };
 
 export async function up(sql: Sql) {
