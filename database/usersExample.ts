@@ -7,6 +7,20 @@ const roles = {
 
 export const users: Omit<User, 'id'>[] = [
   {
+    role: roles.admin,
+    username: 'kryzys',
+    firstName: 'Jakub',
+    lastName: 'M.',
+    mail: 'mark-jakub@gmail.com',
+    phone: +430202020202020,
+    street: 'Musterstrasse',
+    houseNumber: '1',
+    apartmentNumber: '1',
+    postcode: '1020',
+    city: 'Vienna',
+    country: 'Austria',
+  },
+  {
     role: roles.customer,
     username: 'jdoe1',
     firstName: 'John',
