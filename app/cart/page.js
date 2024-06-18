@@ -34,8 +34,12 @@ export default function Cart() {
 
             return (
               <li key={`cart-product-${product.productId}`}>
-                name: {productInfo.name} count: {product.count} price per one:{' '}
-                {productInfo.price} total price: {singleProductValue}
+                <ul>
+                  <li>name: {productInfo.name}</li>
+                  <li>count: {product.count}</li>
+                  <li>price per one: {productInfo.price}</li>
+                  <li> total price: {singleProductValue}</li>
+                </ul>
               </li>
             );
           })}
