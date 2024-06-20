@@ -13,18 +13,14 @@ export default function CartQuantity({ cartCount, stockCount, productId }) {
   const [cartCountPreview, setCartCountPreview] = useState(cartCount);
 
   const handleQuantityChange = (event) => {
-    if (event.target.name === 'removeProduct') {
-      console.log('remove test');
-      setCartCountPreview(0);
-      return UpdateCartCount(productId, 0);
-    }
+    event.preventDefault();
     if (event.target.name === 'decreaseQuantity') {
       setCartCountPreview(cartCountPreview - 1);
-      return UpdateCartCount(productId, cartCountPreview);
+      return UpdateCartCount(productId, cartCountPreview - 1);
     }
     if (event.target.name === 'increaseQuantity') {
       setCartCountPreview(cartCountPreview + 1);
-      return UpdateCartCount(productId, cartCountPreview);
+      return UpdateCartCount(productId, cartCountPreview + 1);
     }
   };
 
@@ -67,7 +63,6 @@ export default function CartQuantity({ cartCount, stockCount, productId }) {
             <button
               className="remove-button"
               formAction={async () => await createOrUpdateCookie(productId, 0)}
-              // name="removeProduct"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

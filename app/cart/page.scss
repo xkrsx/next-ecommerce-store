@@ -1,6 +1,7 @@
 .cart-wrapper {
   .empty-cart {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: var(--secondary-font-color);
@@ -11,6 +12,9 @@
 
     a {
       text-decoration: underline;
+    }
+    .empty-cart-third-line {
+      text-align: center;
     }
   }
   .cart {
