@@ -1,13 +1,25 @@
+'use client';
 import './CartQuantity.scss';
-// import { useState } from 'react';
-import { getCookie } from '../../../util/cookies';
-import { parseJson } from '../../../util/json';
-import CartQuantityInput from '../CartQuantityInput/CartQuantityInput';
+import { useState } from 'react';
+import UpdateCartCount from './actions';
 
-export default function CartQuantity({ cartCount, stockCount }) {
-  // const cookieCart = getCookie('cart');
-  // const cart = !cookieCart ? [] : parseJson(cookieCart);
-  // const [cartQuantity, setCartQuantity] = useState(0);
+// import { getCookie } from '../../../util/cookies';
+// import { parseJson } from '../../../util/json';
+// import { createOrUpdateCookie } from '../AddToCart/actions';
+
+export default function CartQuantity({ cartCount, stockCount, productId }) {
+  const [cartCountPreview, setCartCountPreview] = useState(cartCount);
+
+  const handleQuantityChange = async (event) => {
+    if (event.target.type === 'submit') {
+      // setCartCountPreview(
+      //   event.target.name === 'increaseQuantity'
+      //     ? cartCountPreview + 1
+      //     : cartCountPreview - 1,
+      // );
+      await UpdateCartCount(event.target.name, productId, cartCountPreview);
+    }
+  };
 
   return (
     <div className="cart-quantity">
@@ -17,21 +29,29 @@ export default function CartQuantity({ cartCount, stockCount }) {
             className="change-quantity-button decrease"
             style={
               {
-                // cursor: !cartQuantity ? 'not-allowed' : 'pointer',
+                // cursor: !cartCount ? 'not-allowed' : 'pointer',
               }
             }
-            // disabled={!cartQuantity}
-            // onClick={handleQuantityChange}
+            disabled={!cartCount}
+            onClick={handleQuantityChange}
             name="decreaseQuantity"
           >
             -
           </button>
 
-          <CartQuantityInput count={cartCount} />
+          <input
+            className="quantity-input"
+            name="changeQuantityInput"
+            inputMode="numeric"
+            disabled
+            min="0"
+            max={stockCount}
+            value={cartCountPreview}
+          />
 
           <button
             className="change-quantity-button increase"
-            // onClick={handleQuantityChange}
+            onClick={handleQuantityChange}
             disabled={cartCount >= stockCount}
             style={{
               cursor: cartCount >= stockCount ? 'not-allowed' : 'pointer',

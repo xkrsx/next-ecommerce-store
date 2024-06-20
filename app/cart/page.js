@@ -39,7 +39,7 @@ export default async function Cart() {
                     <div className="product-image">
                       <Link
                         href={`/products/${productInfo.id}`}
-                        target="_blank"
+                        // target="_blank"
                       >
                         <Image
                           src={`/images/products/${productInfo.name}/1.webp`}
@@ -54,7 +54,7 @@ export default async function Cart() {
                     <strong>
                       <Link
                         href={`/products/${productInfo.id}`}
-                        target="_blank"
+                        // target="_blank"
                       >
                         {productInfo.name}
                       </Link>
@@ -69,6 +69,7 @@ export default async function Cart() {
                     <CartQuantity
                       cartCount={product.count}
                       stockCount={productInfo.count}
+                      productId={productInfo.id}
                     />
                   </li>
                   <li>
