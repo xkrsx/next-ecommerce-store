@@ -11,14 +11,20 @@ export default function CartQuantity({ cartCount, stockCount, productId }) {
   const [cartCountPreview, setCartCountPreview] = useState(cartCount);
 
   const handleQuantityChange = async (event) => {
-    if (event.target.type === 'submit') {
-      // setCartCountPreview(
-      //   event.target.name === 'increaseQuantity'
-      //     ? cartCountPreview + 1
-      //     : cartCountPreview - 1,
-      // );
-      await UpdateCartCount(event.target.name, productId, cartCountPreview);
+    if (event.target.name === 'decreaseQuantity') {
+      console.log('-cartCountPreview: ', cartCountPreview);
+      setCartCountPreview(cartCountPreview - 1);
+    } else {
+      console.log('+cartCountPreview: ', cartCountPreview);
+      setCartCountPreview(cartCountPreview + 1);
     }
+    console.log(
+      'update cookies: productId: ',
+      productId,
+      ' count: ',
+      cartCountPreview,
+    );
+    return await UpdateCartCount(productId, cartCountPreview);
   };
 
   return (
@@ -27,11 +33,9 @@ export default function CartQuantity({ cartCount, stockCount, productId }) {
         <div className="quantity-input-buttons">
           <button
             className="change-quantity-button decrease"
-            style={
-              {
-                // cursor: !cartCount ? 'not-allowed' : 'pointer',
-              }
-            }
+            style={{
+              cursor: !cartCountPreview ? 'not-allowed' : 'pointer',
+            }}
             disabled={!cartCount}
             onClick={handleQuantityChange}
             name="decreaseQuantity"
@@ -46,7 +50,7 @@ export default function CartQuantity({ cartCount, stockCount, productId }) {
             disabled
             min="0"
             max={stockCount}
-            value={cartCountPreview}
+            value={cartCount}
           />
 
           <button
