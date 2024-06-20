@@ -32,24 +32,19 @@
       ul {
         list-style: none;
         display: flex;
-        align-items: center;
+        // align-items: center;
+        // justify-content: flex-end;
         height: 4rem;
 
         li {
-          position: relative;
+          display: flex;
+          align-items: center;
           height: 100%;
           padding-right: 1.6rem;
-
-          display: inline-block;
-          align-items: center;
           text-transform: uppercase;
           font-weight: bold;
           cursor: pointer;
           transition: 0.5s ease-in-out;
-
-          &:last-child {
-            padding-right: 0;
-          }
 
           &:hover {
             transform: scale(1.2);
@@ -59,8 +54,12 @@
             position: relative;
             display: flex;
             align-items: center;
+
             height: 100%;
           }
+        }
+        .shipping-options {
+          padding: 0;
         }
       }
     }

@@ -1,4 +1,5 @@
 import './page.scss';
+import Image from 'next/image';
 import Link from 'next/link';
 import { getSingleProductInsecure } from '../../database/products';
 import { getCookie } from '../../util/cookies';
@@ -35,21 +36,44 @@ export default async function Cart() {
               <li key={`cart-product-${product.productId}`}>
                 <ul className="product-info">
                   <li>
-                    <strong>{productInfo.name}</strong>
-                    <Link href={`/products/${productInfo.id}`} target="_blank">
-                      [link]
+                    <div className="product-image">
+                      <Link
+                        href={`/products/${productInfo.id}`}
+                        target="_blank"
+                      >
+                        <Image
+                          src={`/images/products/${productInfo.name}/1.webp`}
+                          alt={productInfo.name}
+                          layout="fill"
+                          objectFit="contain"
+                        />
+                      </Link>
+                    </div>
+                  </li>
+                  <li>
+                    <strong>
+                      <Link
+                        href={`/products/${productInfo.id}`}
+                        target="_blank"
+                      >
+                        {productInfo.name}
+                      </Link>
+                    </strong>
+
+                    <Link href={`/products/${productInfo.category}`}>
+                      /{productInfo.category}
                     </Link>
                   </li>
+
                   <li>
-                    {/* <Image
-                    src={`/images/products/${product.name}/1.webp`}
-                    alt={product.name}
-                    layout="fill"
-                    objectFit="contain"
-                  /> */}
+                    <CartQuantity
+                      cartCount={product.count}
+                      stockCount={productInfo.count}
+                    />
                   </li>
                   <li>
-                    <CartQuantity productId={product.productId} />
+                    <span>in stock:</span>
+                    <strong>{productInfo.count}</strong>
                   </li>
                   <li>
                     <span>price per one: </span>

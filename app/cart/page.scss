@@ -25,6 +25,14 @@
         li {
           display: flex;
           justify-content: space-between;
+
+          .product-image {
+            position: relative;
+            border-radius: 0.5rem;
+            height: 12rem;
+            width: 100%;
+            overflow: hidden;
+          }
         }
       }
     }
