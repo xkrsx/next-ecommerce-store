@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getSingleProductInsecure } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
+import CartQuantity from '../common/CartQuantity/CartQuantity';
 import { cartCalculator } from './actions';
 
 // TODO: add style
@@ -39,65 +40,15 @@ export default async function Cart() {
                   /> */}
                   <li>{productInfo.name}</li>
                   <li>
-                    <span className="quantity-label">Quantity:</span>
-                    <div className="quantity-input-buttons">
-                      <button
-                        className="change-quantity-button decrease"
-                        // style={{
-                        //   cursor: !cartQuantity ? 'not-allowed' : 'pointer',
-                        // }}
-                        // disabled={!cartQuantity}
-                        // onClick={handleQuantityChange}
-                        name="decreaseQuantity"
-                      >
-                        -
-                      </button>
-
-                      <input
-                        className="quantity-input"
-                        name="changeQuantityInput"
-                        type="number"
-                        disabled
-                        min="0"
-                        // max={stockCount}
-                        // value={cartQuantity}
-                      />
-
-                      <button
-                        className="change-quantity-button increase"
-                        // onClick={handleQuantityChange}
-                        // disabled={cartQuantity >= stockCount}
-                        // style={{
-                        //   cursor:
-                        //     cartQuantity >= stockCount
-                        // ? 'not-allowed'
-                        // : 'pointer',
-                        // }}
-                        name="increaseQuantity"
-                      >
-                        +
-                      </button>
-                    </div>
-
-                    {/* TODO add cookie functionality to -/+ buttons instead */}
-                    {/* <button
-                      disabled={!cartQuantity}
-                      style={{
-                        cursor: !cartQuantity ? 'not-allowed' : 'pointer',
-                      }}
-                      // formAction={async () =>
-                      //   await createOrUpdateCookie(productId, cartQuantity)
-                      }
-                      className="add-to-cart-button"
-                    >
-                      Add to cart
-                    </button> */}
+                    <CartQuantity />
                   </li>
-                  <li>price per one: {productInfo.price}€</li>
-                  <li> total price: {singleProductValue}€</li>
-
                   <li>
-                    <button className="remove-button">Remove product</button>
+                    <span>price per one: </span>
+                    <strong> {productInfo.price}€</strong>
+                  </li>
+                  <li>
+                    <span>total price: </span>
+                    <strong> {singleProductValue}€</strong>
                   </li>
                 </ul>
               </li>
@@ -105,7 +56,7 @@ export default async function Cart() {
           })}
         </ul>
         <div className="value-link">
-          <div className="total-value">total value: {totalValue}€</div>
+          <div className="total-value">Cart total value: {totalValue}€</div>
           <div className="checkout-link">
             <Link href="/checkout">Checkout</Link>
           </div>
