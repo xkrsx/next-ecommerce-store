@@ -54,19 +54,13 @@ export default async function Cart() {
           </div>
           <div className="empty-cart-third-line">
             or browse categories:
-            <ul>
-              {/* <li> */}
+            <div>
               <Link href="/products/equipment">Equipment</Link>
               {' / '}
-              {/* </li>
-              <li> */}
               <Link href="/products/bike">Bike</Link>
               {' / '}
-              {/* </li>
-              <li> */}
               <Link href="/products/protection">Protection</Link>
-              {/* </li> */}
-            </ul>
+            </div>
           </div>
         </div>
       ) : (

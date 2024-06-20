@@ -1,3 +1,5 @@
+'use server';
+
 import { cookies } from 'next/headers';
 import { getAllProductsInsecure } from '../../database/products';
 import { getCookie } from '../../util/cookies';

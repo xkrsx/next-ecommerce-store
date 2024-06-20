@@ -34,7 +34,10 @@ export default async function ProductPage(props) {
             <span>
               <Link href="/products"> all products </Link>
               {'>'}
-              <Link href={`/${product.category}`}> {product.category} </Link>
+              <Link href={`/products/${product.category}`}>
+                {' '}
+                {product.category}{' '}
+              </Link>
             </span>
           </div>
           <h1>{product.name}</h1>
