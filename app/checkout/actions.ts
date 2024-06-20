@@ -16,6 +16,8 @@ export async function cartCalculator() {
     return { ...product, count: matchingProducts?.count };
   });
 
-  const productsInCart = productsWithCounts.filter((product) => product.count);
+  const productsInCart = productsWithCounts.filter(
+    (product) => product.count >= 1,
+  );
   return productsInCart;
 }

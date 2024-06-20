@@ -16,6 +16,8 @@ export async function findProductInCookieCart() {
     return { ...product, count: matchingProducts?.count };
   });
 
-  const productsInCart = productsWithCounts.filter((product) => product.count);
+  const productsInCart = productsWithCounts.filter(
+    (product) => product.count > 0,
+  );
   return productsInCart;
 }

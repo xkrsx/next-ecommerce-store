@@ -25,70 +25,80 @@ export default async function Cart() {
     <div className="cart-wrapper">
       <h1>Cart</h1>
       <div className="cart">
-        <ul className="cart-product">
-          {cart.map(async (product) => {
-            const productInfo = await getSingleProductInsecure(
-              product.productId,
-            );
-            const singleProductValue = product.count * productInfo.price;
+        {!cartTotalCount ? (
+          'No products in the cart. Keep on shopping!'
+        ) : (
+          <ul className="cart-product">
+            {cart.map(async (product) => {
+              const productInfo = await getSingleProductInsecure(
+                product.productId,
+              );
+              const singleProductValue = product.count * productInfo.price;
 
-            return (
-              <li key={`cart-product-${product.productId}`}>
-                <ul className="product-info">
-                  <li>
-                    <div className="product-image">
-                      <Link
-                        href={`/products/${productInfo.id}`}
-                        // target="_blank"
-                      >
-                        <Image
-                          src={`/images/products/${productInfo.name}/1.webp`}
-                          alt={productInfo.name}
-                          layout="fill"
-                          objectFit="contain"
-                        />
+              return (
+                <li
+                  style={{
+                    display: !product.count ? 'none' : '',
+                  }}
+                  key={`cart-product-${product.productId}`}
+                >
+                  <ul className="product-info">
+                    <li>
+                      <div className="product-image">
+                        <Link
+                          href={`/products/${productInfo.id}`}
+                          // target="_blank"
+                        >
+                          <Image
+                            src={`/images/products/${productInfo.name}/1.webp`}
+                            alt={productInfo.name}
+                            layout="fill"
+                            objectFit="contain"
+                          />
+                        </Link>
+                      </div>
+                    </li>
+                    <li>
+                      <strong>
+                        <Link
+                          href={`/products/${productInfo.id}`}
+                          // target="_blank"
+                        >
+                          {productInfo.name}
+                        </Link>
+                      </strong>
+
+                      <Link href={`/products/${productInfo.category}`}>
+                        /{productInfo.category}
                       </Link>
-                    </div>
-                  </li>
-                  <li>
-                    <strong>
-                      <Link
-                        href={`/products/${productInfo.id}`}
-                        // target="_blank"
-                      >
-                        {productInfo.name}
-                      </Link>
-                    </strong>
+                    </li>
 
-                    <Link href={`/products/${productInfo.category}`}>
-                      /{productInfo.category}
-                    </Link>
-                  </li>
+                    <li>
+                      <CartQuantity
+                        cartCount={product.count}
+                        stockCount={productInfo.count}
+                        productId={productInfo.id}
+                      />
+                    </li>
+                    <li>
+                      <span>in stock:</span>
+                      <strong>{productInfo.count}</strong>
+                    </li>
+                    <li>
+                      <span>price per one: </span>
+                      <strong> {productInfo.price}€</strong>
+                    </li>
+                    <li>
+                      <span>total price: </span>
+                      <strong> {singleProductValue}€</strong>
+                    </li>
+                  </ul>
+                </li>
+              );
+            })}
+          </ul>
+        )}
 
-                  <li>
-                    <CartQuantity
-                      cartCount={product.count}
-                      stockCount={productInfo.count}
-                      productId={productInfo.id}
-                    />
-                  </li>
-                  <li>
-                    <span>in stock:</span>
-                    <strong>{productInfo.count}</strong>
-                  </li>
-                  <li>
-                    <span>price per one: </span>
-                    <strong> {productInfo.price}€</strong>
-                  </li>
-                  <li>
-                    <span>total price: </span>
-                    <strong> {singleProductValue}€</strong>
-                  </li>
-                </ul>
-              </li>
-            );
-          })}
-        </ul>
         <div className="value-count-link">
           <div className="total-value-count">
             Cart total count: {cartTotalCount}
