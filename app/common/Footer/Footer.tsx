@@ -7,7 +7,7 @@ export default function Footer() {
     <div className="footer-wrapper">
       <div className="footer">
         <div className="nav-bottom">
-          <div className="options">
+          <div className="bottom-logo options">
             <ul>
               <li>
                 <Link href="/">

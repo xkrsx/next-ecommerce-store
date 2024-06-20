@@ -1,13 +1,19 @@
 .all-products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  // justify-content: space-between;
+  justify-content: space-around;
+  // justify-content: space-evenly;
 
   .single-product {
     width: 30%;
     padding-bottom: 1rem;
     border-radius: 0.5rem;
     transition: 0.5s ease-in-out;
+
+    // &:last-child {
+    //   justify-self: end;
+    // }
 
     &:hover {
       transform: scale(1.05);

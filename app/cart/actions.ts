@@ -3,7 +3,7 @@ import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
 import { CartCount } from '../common/AddToCart/actions';
 
-export async function cartCalculator() {
+export async function findProductInCookieCart() {
   const products = await getAllProductsInsecure();
   const cookieCart = getCookie('cart');
   const cart = !cookieCart ? [] : parseJson(cookieCart);

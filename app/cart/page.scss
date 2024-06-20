@@ -52,7 +52,7 @@
     }
 
     .checkout-link {
-      margin-top: 0.8rem;
+      margin: 0.8rem auto;
       height: 2.4rem;
       width: 8rem;
       border-radius: 1rem;
@@ -62,10 +62,15 @@
       opacity: 70%;
       display: flex;
       justify-content: center;
-      align-items: flex-end;
+      align-items: baseline;
+
       font-weight: 700;
       transition: 0.5s ease-in-out;
       cursor: pointer;
+
+      span {
+        align-items: center;
+      }
 
       &:hover {
         opacity: 100%;

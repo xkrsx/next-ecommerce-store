@@ -1,7 +1,7 @@
 .all-products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
 
   .single-product {
     width: 30%;

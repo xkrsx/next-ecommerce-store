@@ -1,9 +1,13 @@
-'use client';
+// 'use client';
 import './CartQuantity.scss';
-import { useState } from 'react';
+// import { useState } from 'react';
+import { getCookie } from '../../../util/cookies';
+import { parseJson } from '../../../util/json';
 
-export default function CartQuantity() {
-  const [cartQuantity, setCartQuantity] = useState(0);
+export default function CartQuantity({ productId }) {
+  const cookieCart = getCookie('cart');
+  const cart = !cookieCart ? [] : parseJson(cookieCart);
+  // const [cartQuantity, setCartQuantity] = useState(0);
 
   return (
     <div className="cart-quantity">
@@ -11,10 +15,12 @@ export default function CartQuantity() {
         <div className="quantity-input-buttons">
           <button
             className="change-quantity-button decrease"
-            style={{
-              cursor: !cartQuantity ? 'not-allowed' : 'pointer',
-            }}
-            disabled={!cartQuantity}
+            style={
+              {
+                // cursor: !cartQuantity ? 'not-allowed' : 'pointer',
+              }
+            }
+            // disabled={!cartQuantity}
             // onClick={handleQuantityChange}
             name="decreaseQuantity"
           >
@@ -28,7 +34,7 @@ export default function CartQuantity() {
             disabled
             min="0"
             // max={stockCount}
-            value={cartQuantity}
+            // value={cartQuantity}
           />
 
           <button
