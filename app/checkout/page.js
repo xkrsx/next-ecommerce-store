@@ -3,7 +3,9 @@ import Image from 'next/image';
 import { getSingleProductInsecure } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
-import { cartCalculator } from './actions';
+import { cartCalculator, deleteCookies } from './actions';
+
+// import OrderPayButton from './OrderPayButton';
 
 export default async function Checkout() {
   const cookieCart = getCookie('cart');
@@ -13,8 +15,6 @@ export default async function Checkout() {
   const totalValue = productsInCart.reduce((acc, product) => {
     return acc + Number(product.price) * Number(product.count);
   }, 0);
-
-  console.log(totalValue);
 
   return (
     <div className="checkout-wrapper">
@@ -29,7 +29,9 @@ export default async function Checkout() {
               );
               const singleProductValue = product.count * productInfo.price;
 
-              return (
+              return !product.count ? (
+                ''
+              ) : (
                 <li key={`cart-product-${product.productId}`}>
                   <ul>
                     <li>{productInfo.name}</li>
@@ -182,7 +184,11 @@ export default async function Checkout() {
 
             {/* TODO add functionality to the button: delete the cookies and go to 'thank you' website */}
 
-            <button className="pay-button">
+            {/* <OrderPayButton totalValue={totalValue} /> */}
+            <button
+              className="pay-button"
+              onClick={async () => await deleteCookies()}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"

@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import { getAllProductsInsecure } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
@@ -16,8 +17,10 @@ export async function cartCalculator() {
     return { ...product, count: matchingProducts?.count };
   });
 
-  const productsInCart = productsWithCounts.filter(
-    (product) => product.count >= 1,
-  );
+  const productsInCart = productsWithCounts.filter((product) => product.count);
   return productsInCart;
+}
+
+export async function deleteCookies() {
+  await cookies().set('cart', '');
 }
