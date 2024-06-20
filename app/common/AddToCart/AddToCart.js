@@ -11,13 +11,9 @@ export default function AddToCart({ stockCount, productId }) {
       return setCartQuantity(cartQuantity + 1);
     }
     if (inputName === 'decreaseQuantity') {
-      console.log('decrease');
       if (cartQuantity - 1 >= 0) {
         return setCartQuantity(cartQuantity - 1);
       }
-      // if (cartQuantity - 1 === 0) {
-      //   return setCartQuantity(cartQuantity - 1);
-      // }
     }
   }
 
@@ -27,9 +23,6 @@ export default function AddToCart({ stockCount, productId }) {
     if (event.target.type === 'submit') {
       changeQuantityButtons(event.target.name);
     }
-    // if (event.target.name === 'changeQuantityInput') {
-    //   setCartQuantity({ quantityInput: Number(event.currentTarget.value) });
-    // }
   };
 
   return (
@@ -63,7 +56,7 @@ export default function AddToCart({ stockCount, productId }) {
               onClick={handleQuantityChange}
               disabled={cartQuantity >= stockCount}
               style={{
-                cursor: cartQuantity >= stockCount ? 'not-allowed' : 'pointer',
+                cursor: cartQuantity >= stockCount ? 'not-allowed' : 'copy',
               }}
               name="increaseQuantity"
             >

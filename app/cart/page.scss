@@ -1,4 +1,18 @@
 .cart-wrapper {
+  .empty-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-font-color);
+    background-color: var(--primary-error-color);
+    padding: 0.8rem;
+    width: 100%;
+    gap: 0.8rem;
+
+    a {
+      text-decoration: underline;
+    }
+  }
   .cart {
     display: flex;
     justify-content: space-evenly;
