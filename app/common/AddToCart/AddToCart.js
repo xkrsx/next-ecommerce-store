@@ -52,7 +52,7 @@ export default function AddToCart({ stockCount, productId }) {
             <input
               className="quantity-input"
               name="changeQuantityInput"
-              type="number"
+              inputMode="numeric"
               disabled
               min="0"
               max={stockCount}
