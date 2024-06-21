@@ -24,6 +24,7 @@ export default function BikePolo() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowfullscreen
+              alt="Video about Bike Polo Tournament, Berlin Mixed 2018"
             />
 
             <h3>Useful links:</h3>
