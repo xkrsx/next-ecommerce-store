@@ -88,7 +88,6 @@ export default async function Checkout() {
                       </ul>
 
                       <div className="product-image">
-                        {/* <div className="product-image"> */}
                         <Link
                           href={`/products/${productInfo.id}`}
                           // target="_blank"

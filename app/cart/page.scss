@@ -74,8 +74,24 @@
       font-weight: 700;
       text-align: center;
       border: 0.1rem dotted var(--primary-accept-color);
+      color: var(--primary-font-color);
       border-radius: 1rem;
       line-height: 4rem;
+    }
+
+    .shopping {
+      font-weight: 300;
+      text-decoration: underline;
+      color: var(--primary-font-color);
+      cursor: pointer;
+      transition: 0.5s ease-in-out;
+
+      &:hover {
+        color: var(--primary-background-color);
+        background-color: var(--primary-accept-color);
+        text-decoration: none;
+        opacity: 50%;
+      }
     }
 
     .checkout-link {
@@ -89,16 +105,14 @@
       opacity: 70%;
       display: flex;
       justify-content: center;
-      align-items: baseline;
-
       font-weight: 700;
       transition: 0.5s ease-in-out;
       cursor: pointer;
 
-      span {
+      a {
+        display: flex;
         align-items: center;
       }
-
       &:hover {
         opacity: 100%;
         scale: 1.2;
