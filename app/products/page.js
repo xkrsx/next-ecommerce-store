@@ -8,6 +8,7 @@ export function generateMetadata() {
     title: `All products`,
     description: `Check all of our bike polo products: high quality, durability and just awesome lookin' stuff available now for you!`,
   };
+}
 
 export default async function Products() {
   const products = await getAllProductsInsecure();

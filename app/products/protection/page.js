@@ -8,9 +8,12 @@ export function generateMetadata() {
     title: `Protection products`,
     description: `Browse protection category on Bik E'Polo and give yourself a treat!`,
   };
+}
 
 export default async function Protection() {
   const products = await getAllProductsInsecure();
+
+  // TODO solve map issue with no return
 
   return (
     <div className="products-wrapper">

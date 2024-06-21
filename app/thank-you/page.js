@@ -4,8 +4,9 @@ import Link from 'next/link';
 export function generateMetadata() {
   return {
     title: `Thank you for your order`,
-    description: `Ordered & paid! Now it's only waiting left... or browse our products again.`,
+    description: `Ordered & paid! Now it's only waiting left... or browse our products`,
   };
+}
 
 export default function ThankYou() {
   return (
