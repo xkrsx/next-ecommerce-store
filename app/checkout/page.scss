@@ -1,0 +1,149 @@
+.checkout {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  h2 {
+    padding: 0.8rem;
+  }
+
+  .empty-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-font-color);
+    background-color: var(--primary-error-color);
+    padding: 0.8rem;
+    width: 100%;
+    gap: 0.8rem;
+
+    a {
+      text-decoration: underline;
+    }
+    .empty-cart-third-line {
+      text-align: center;
+    }
+
+    .empty-cart-fourth-line {
+      width: 100%;
+    }
+  }
+
+  .order-payment {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .order,
+  .payment {
+    width: 45%;
+  }
+
+  .total-value {
+    margin: 0.8rem;
+    padding: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    border: 0.1rem dotted var(--primary-accept-color);
+    border-radius: 1rem;
+  }
+
+  .single-product {
+    display: flex;
+    // justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0.8rem;
+    border: 1px solid var(--primary-font-color);
+    border-radius: 1rem;
+    width: 100%;
+
+    li {
+      padding: 0.4rem;
+      list-style: none;
+
+      .info-image {
+        width: 50%;
+      }
+
+      .product-image {
+        position: relative;
+        border-radius: 0.5rem;
+        height: 7rem;
+        width: 50%;
+        overflow: hidden;
+      }
+
+      label {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+          width: 16rem;
+          height: 1.5rem;
+        }
+        strong {
+          color: var(--primary-error-color);
+        }
+      }
+    }
+  }
+
+  .payment-form {
+    border: 1px solid black;
+    border-radius: 1rem;
+    height: 100%;
+    width: 100%;
+
+    ul {
+      border: 0px;
+      background-color: lightblue;
+      border-radius: 0 0 1rem 1rem;
+    }
+  }
+
+  .cards {
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+
+    label {
+      font-size: 0.5rem;
+
+      input {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .pay-button {
+    margin-top: 0.8rem;
+    width: 100%;
+    padding: 0.4rem;
+    border-radius: 1rem;
+    line-height: 2.4rem;
+    background-color: var(--primary-accept-color);
+    color: var(--secondary-font-color);
+    opacity: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 100%;
+    }
+  }
+}

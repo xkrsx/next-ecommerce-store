@@ -1,7 +1,6 @@
 'use client';
 import './AddToCart.scss';
 import { useState } from 'react';
-// import { createCookieWithCount } from '../../../utils/cookies';
 import { createOrUpdateCookie } from './actions.ts';
 
 export default function AddToCart({ stockCount, productId }) {
@@ -12,13 +11,9 @@ export default function AddToCart({ stockCount, productId }) {
       return setCartQuantity(cartQuantity + 1);
     }
     if (inputName === 'decreaseQuantity') {
-      console.log('decrease');
       if (cartQuantity - 1 >= 0) {
         return setCartQuantity(cartQuantity - 1);
       }
-      // if (cartQuantity - 1 === 0) {
-      //   return setCartQuantity(cartQuantity - 1);
-      // }
     }
   }
 
@@ -28,9 +23,6 @@ export default function AddToCart({ stockCount, productId }) {
     if (event.target.type === 'submit') {
       changeQuantityButtons(event.target.name);
     }
-    // if (event.target.name === 'changeQuantityInput') {
-    //   setCartQuantity({ quantityInput: Number(event.currentTarget.value) });
-    // }
   };
 
   return (
@@ -52,7 +44,7 @@ export default function AddToCart({ stockCount, productId }) {
             <input
               className="quantity-input"
               name="changeQuantityInput"
-              type="number"
+              inputMode="numeric"
               disabled
               min="0"
               max={stockCount}
@@ -64,7 +56,7 @@ export default function AddToCart({ stockCount, productId }) {
               onClick={handleQuantityChange}
               disabled={cartQuantity >= stockCount}
               style={{
-                cursor: cartQuantity >= stockCount ? 'not-allowed' : 'pointer',
+                cursor: cartQuantity >= stockCount ? 'not-allowed' : 'copy',
               }}
               name="increaseQuantity"
             >

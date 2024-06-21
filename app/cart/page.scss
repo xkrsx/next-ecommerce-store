@@ -1,0 +1,122 @@
+.cart-wrapper {
+  .empty-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-font-color);
+    background-color: var(--primary-error-color);
+    padding: 0.8rem;
+    width: 100%;
+    gap: 0.8rem;
+
+    a {
+      text-decoration: underline;
+    }
+    .empty-cart-third-line {
+      text-align: center;
+    }
+  }
+  .cart {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: last baseline;
+    gap: 0.8rem;
+
+    .cart-product {
+      width: 75%;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0.8rem;
+      border: 1px solid var(--primary-font-color);
+      border-radius: 1rem;
+      justify-content: space-around;
+
+      .product-info {
+        margin: 0.8rem;
+
+        list-style: none;
+        padding: 0.8rem;
+        border: 1px dotted var(--primary-font-color);
+        border-radius: 1rem;
+
+        li {
+          display: flex;
+          justify-content: space-between;
+
+          .product-image {
+            position: relative;
+            border-radius: 0.5rem;
+            height: 12rem;
+            width: 100%;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+
+  .value-count-link {
+    width: 20%;
+
+    padding: 0.8rem;
+    height: 5.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .total-value-count {
+      margin: 0.8rem;
+      height: 100%;
+      width: 12rem;
+      font-weight: 700;
+      text-align: center;
+      border: 0.1rem dotted var(--primary-accept-color);
+      color: var(--primary-font-color);
+      border-radius: 1rem;
+      line-height: 4rem;
+    }
+
+    .shopping {
+      font-weight: 300;
+      text-decoration: underline;
+      color: var(--primary-font-color);
+      cursor: pointer;
+      transition: 0.5s ease-in-out;
+
+      &:hover {
+        color: var(--primary-background-color);
+        background-color: var(--primary-accept-color);
+        text-decoration: none;
+        opacity: 50%;
+      }
+    }
+
+    .checkout-link {
+      margin: 0.8rem auto;
+      height: 2.4rem;
+      width: 8rem;
+      border-radius: 1rem;
+      line-height: 2.4rem;
+      background-color: var(--primary-accept-color);
+      color: var(--secondary-font-color);
+      opacity: 70%;
+      display: flex;
+      justify-content: center;
+      font-weight: 700;
+      transition: 0.5s ease-in-out;
+      cursor: pointer;
+
+      a {
+        display: flex;
+        align-items: center;
+      }
+      &:hover {
+        opacity: 100%;
+        scale: 1.2;
+      }
+    }
+  }
+}

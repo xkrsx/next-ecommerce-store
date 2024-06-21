@@ -17,15 +17,24 @@ export default function BikePolo() {
         <div className="video-description">
           <div className="video">
             <iframe
-              width="560"
-              height="315"
+              height="50%"
               src="https://www.youtube.com/embed/7FM4ZLJMoMQ?si=N-kQZKzkzEFWIBaV"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
+              referrerPolicy="strict-origin-when-cross-origin"
               allowfullscreen
-            ></iframe>
+              alt="Video about Bike Polo Tournament, Berlin Mixed 2018"
+            />
+
+            <h3>Useful links:</h3>
+            <ul>
+              <li>
+                <Link href="https://poloverse.net/">
+                  https://poloverse.net/
+                </Link>
+              </li>
+            </ul>
           </div>
           <div className="description">
             <p>
@@ -73,14 +82,6 @@ export default function BikePolo() {
               cycling enthusiasts looking for a new challenge and offers a fun,
               competitive way to stay active and socialize.
             </p>
-            <h3>Useful links:</h3>
-            <ul>
-              <li>
-                <Link href="https://poloverse.net/">
-                  https://poloverse.net/
-                </Link>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
