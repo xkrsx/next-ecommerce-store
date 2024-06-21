@@ -1,19 +1,18 @@
 'use client';
 
-import { Router } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { deleteCookies } from './actions';
 
 export default function OrderPayButton({ totalValue }) {
-  function handleClick(event) {
-    event.preventDefault();
-    Router.push('/thank-you');
-  }
-
+  const router = useRouter();
   return (
     <button
       className="pay-button"
-      formAction={async () => await deleteCookies()}
-      onClick={handleClick}
+      onClick={async (event) => {
+        event.preventDefault();
+        await deleteCookies();
+        await router.push('/thank-you');
+      }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
