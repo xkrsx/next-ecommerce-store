@@ -7,6 +7,13 @@ import { parseJson } from '../../util/json';
 import { cartCalculator } from './actions';
 import OrderPayButton from './OrderPayButton';
 
+export function generateMetadata() {
+  return {
+    title: `Checkout`,
+    description: `This is your last step to get some wonderful bike polo stuff from Bik E'Polo!`,
+  };
+}
+
 export default async function Checkout() {
   const cookieCart = getCookie('cart');
   const cart = !cookieCart ? [] : parseJson(cookieCart);
@@ -116,7 +123,7 @@ export default async function Checkout() {
                       <span>
                         <strong>*</strong>First name
                       </span>{' '}
-                      <input required />
+                      <input required data-test-id="checkout-first-name" />
                     </label>
                   </li>
                   <li>
@@ -124,7 +131,7 @@ export default async function Checkout() {
                       <span>
                         <strong>*</strong>Last name:
                       </span>{' '}
-                      <input required />
+                      <input required data-test-id="checkout-last-name" />
                     </label>
                   </li>
                   <li>
@@ -132,7 +139,11 @@ export default async function Checkout() {
                       <span>
                         <strong>*</strong>E-mail:
                       </span>{' '}
-                      <input type="email" required />
+                      <input
+                        type="email"
+                        required
+                        data-test-id="checkout-email"
+                      />
                     </label>
                   </li>
                   <li>
@@ -145,7 +156,7 @@ export default async function Checkout() {
                       <span>
                         <strong>*</strong>Street:{' '}
                       </span>
-                      <input required />
+                      <input required data-test-id="checkout-address" />
                     </label>
                   </li>
                   <li>
@@ -166,7 +177,7 @@ export default async function Checkout() {
                       <span>
                         <strong>*</strong>Postcode:{' '}
                       </span>
-                      <input required />
+                      <input required data-test-id="checkout-postal-code" />
                     </label>
                   </li>
                   <li>
@@ -174,7 +185,7 @@ export default async function Checkout() {
                       <span>
                         <strong>*</strong>City:{' '}
                       </span>
-                      <input required />
+                      <input required data-test-id="checkout-city" />
                     </label>
                   </li>
                   <li>
@@ -182,7 +193,7 @@ export default async function Checkout() {
                       <span>
                         <strong>*</strong>Country:{' '}
                       </span>
-                      <input required />
+                      <input required data-test-id="checkout-country" />
                     </label>
                   </li>
                 </ul>
@@ -214,6 +225,7 @@ export default async function Checkout() {
                           placeholder="XX XXXX XXXX XXXX XXXX XXXX"
                           type="number"
                           required
+                          data-test-id="checkout-credit-card"
                         />
                       </label>
                     </li>
@@ -222,7 +234,11 @@ export default async function Checkout() {
                         <span>
                           <strong>*</strong>Expiry date{' '}
                         </span>
-                        <input placeholder="MM / YY" required />
+                        <input
+                          placeholder="MM / YY"
+                          required
+                          data-test-id="checkout-expiration-date"
+                        />
                       </label>
                     </li>
                     <li>
@@ -230,7 +246,12 @@ export default async function Checkout() {
                         <span>
                           <strong>*</strong>Security code{' '}
                         </span>
-                        <input placeholder="XXX" type="number" required />
+                        <input
+                          placeholder="XXX"
+                          type="number"
+                          required
+                          data-test-id="checkout-security-code"
+                        />
                       </label>
                     </li>
                     <li>
@@ -243,8 +264,6 @@ export default async function Checkout() {
                     </li>
                   </ul>
                 </div>
-
-                {/* TODO add functionality to the button: delete the cookies and go to 'thank you' website */}
 
                 <OrderPayButton totalValue={totalValue} />
               </form>

@@ -1,0 +1,25 @@
+.thank-you-block {
+  padding: 0.8rem 0 0.8rem 0;
+  text-align: center;
+  background-color: var(--primary-accept-color);
+  opacity: 0.8;
+  color: var(--secondary-font-color);
+  line-height: 2rem;
+  display: flex;
+  justify-content: center;
+
+  .thank-you-text {
+    width: 75%;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .bold {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  .bik-e-polo-team {
+    text-align: right;
+    font-weight: 700;
+  }
+}

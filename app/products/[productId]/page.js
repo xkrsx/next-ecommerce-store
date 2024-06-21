@@ -24,7 +24,7 @@ export default async function ProductPage(props) {
   if (!product) {
     notFound();
   }
-  // TODO change image url to slug
+  // TODO change product url to slug
 
   return (
     <div className="product-wrapper">
@@ -46,9 +46,10 @@ export default async function ProductPage(props) {
           <div className="product-image">
             <Image
               src={`/images/products/${product.name}/1.webp`}
-              alt={product.name}
+              alt={`Image of ${product.name}`}
               layout="fill"
               objectFit="contain"
+              data-test-id="product-image"
             />
           </div>
           <div className="product-info-add-to-cart">
@@ -68,7 +69,13 @@ export default async function ProductPage(props) {
                 </li>
                 <li>
                   Price:{' '}
-                  <strong className="product-price">{product.price}</strong> €
+                  <strong
+                    className="product-price"
+                    data-test-id="product-price"
+                  >
+                    {product.price}
+                  </strong>{' '}
+                  €
                 </li>
                 <li>
                   In stock:{' '}

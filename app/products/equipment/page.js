@@ -3,6 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getAllProductsInsecure } from '../../../database/products';
 
+export function generateMetadata() {
+  return {
+    title: `Equipment products`,
+    description: `Browse Equipment category on Bik E'Polo and give yourself a treat!`,
+  };
+}
+
 export default async function Equipment() {
   const products = await getAllProductsInsecure();
 

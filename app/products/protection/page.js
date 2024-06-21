@@ -3,10 +3,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getAllProductsInsecure } from '../../../database/products';
 
-// import { filterCategory } from '../actions';
+export function generateMetadata() {
+  return {
+    title: `Protection products`,
+    description: `Browse protection category on Bik E'Polo and give yourself a treat!`,
+  };
+}
 
-export default async function Equipment() {
+export default async function Protection() {
   const products = await getAllProductsInsecure();
+
+  // TODO solve map issue with no return
 
   return (
     <div className="products-wrapper">

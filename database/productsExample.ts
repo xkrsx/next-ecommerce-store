@@ -1,6 +1,6 @@
 import { Product } from '../migrations/00000-createTableProducts';
 
-const category = {
+export const category = {
   equipment: 'equipment',
   bike: 'bike',
   protection: 'protection',

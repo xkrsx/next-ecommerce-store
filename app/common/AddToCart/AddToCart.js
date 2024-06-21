@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { createOrUpdateCookie } from './actions.ts';
 
 export default function AddToCart({ stockCount, productId }) {
-  const [cartQuantity, setCartQuantity] = useState(0);
+  const [cartQuantity, setCartQuantity] = useState(1);
 
   function changeQuantityButtons(inputName) {
     if (inputName === 'increaseQuantity') {
@@ -49,6 +49,7 @@ export default function AddToCart({ stockCount, productId }) {
               min="0"
               max={stockCount}
               value={cartQuantity}
+              data-test-id="product-quantity"
             />
 
             <button
@@ -71,6 +72,7 @@ export default function AddToCart({ stockCount, productId }) {
               await createOrUpdateCookie(productId, cartQuantity)
             }
             className="add-to-cart-button"
+            data-test-id="product-add-to-cart"
           >
             Add to cart
           </button>

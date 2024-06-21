@@ -7,6 +7,13 @@ import { parseJson } from '../../util/json';
 import CartQuantity from '../common/CartQuantity/CartQuantity';
 import { findProductInCookieCart } from './actions';
 
+export function generateMetadata() {
+  return {
+    title: `Cart`,
+    description: `Your cart full of awesome bike polo stuff to buy on Bik E'Polo!`,
+  };
+}
+
 export default async function Cart() {
   const cookieCart = getCookie('cart');
   const cart = !cookieCart ? [] : parseJson(cookieCart);
@@ -79,7 +86,10 @@ export default async function Cart() {
                   }}
                   key={`cart-product-${product.productId}`}
                 >
-                  <ul className="product-info">
+                  <ul
+                    className="product-info"
+                    data-test-id={`cart-product-${product.productId}`}
+                  >
                     <li>
                       <div className="product-image">
                         <Link
@@ -127,7 +137,7 @@ export default async function Cart() {
                     </li>
                     <li>
                       <span>total price: </span>
-                      <strong> {singleProductValue}€</strong>
+                      <strong> {singleProductValue}</strong> €
                     </li>
                   </ul>
                 </li>
@@ -139,13 +149,18 @@ export default async function Cart() {
             <div className="total-value-count shopping">
               <Link href="/products"> Continue shopping</Link>
             </div>
-            <div className="total-value-count count">
-              Cart total count: {cartTotalCount}
+            <div className="total-value-count ">
+              Cart total count:
+              <p className="value">{cartTotalCount}</p>
             </div>
-            <div className="total-value-count value">
-              Cart total value: {cartTotalValue}€
+            <div className="total-value-count ">
+              Cart total value:
+              <p className="value" data-test-id="cart-total">
+                {cartTotalValue}
+              </p>{' '}
+              €
             </div>
-            <div className="checkout-link">
+            <button className="checkout-link" data-test-id="cart-checkout">
               <Link href="/checkout">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +175,7 @@ export default async function Cart() {
                   <strong>Checkout</strong>
                 </span>
               </Link>
-            </div>
+            </button>
           </div>
         </div>
       )}
