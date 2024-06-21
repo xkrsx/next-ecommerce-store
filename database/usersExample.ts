@@ -5,8 +5,9 @@ const roles = {
   customer: 'customer',
 };
 
-export const users: Omit<User, 'id'>[] = [
+export const users: User[] = [
   {
+    id: 1,
     role: roles.admin,
     username: 'kryzys',
     firstName: 'Jakub',
@@ -21,6 +22,7 @@ export const users: Omit<User, 'id'>[] = [
     country: 'Austria',
   },
   {
+    id: 2,
     role: roles.customer,
     username: 'jdoe1',
     firstName: 'John',
@@ -35,6 +37,7 @@ export const users: Omit<User, 'id'>[] = [
     country: 'United Kingdom',
   },
   {
+    id: 3,
     role: roles.customer,
     username: 'asmith',
     firstName: 'Alice',
@@ -49,6 +52,7 @@ export const users: Omit<User, 'id'>[] = [
     country: 'France',
   },
   {
+    id: 4,
     role: roles.customer,
     username: 'bwilliams',
     firstName: 'Bob',
@@ -63,6 +67,7 @@ export const users: Omit<User, 'id'>[] = [
     country: 'Germany',
   },
   {
+    id: 5,
     role: roles.customer,
     username: 'cmiller',
     firstName: 'Carol',
@@ -77,6 +82,7 @@ export const users: Omit<User, 'id'>[] = [
     country: 'Italy',
   },
   {
+    id: 6,
     role: roles.customer,
     username: 'djohnson',
     firstName: 'David',
@@ -91,6 +97,7 @@ export const users: Omit<User, 'id'>[] = [
     country: 'Spain',
   },
   {
+    id: 7,
     role: roles.customer,
     username: 'esmith',
     firstName: 'Emma',
@@ -105,6 +112,7 @@ export const users: Omit<User, 'id'>[] = [
     country: 'Netherlands',
   },
   {
+    id: 8,
     role: roles.customer,
     username: 'fwhite',
     firstName: 'Frank',
@@ -119,6 +127,7 @@ export const users: Omit<User, 'id'>[] = [
     country: 'Switzerland',
   },
   {
+    id: 9,
     role: roles.customer,
     username: 'gjones',
     firstName: 'Grace',
@@ -133,6 +142,7 @@ export const users: Omit<User, 'id'>[] = [
     country: 'Sweden',
   },
   {
+    id: 10,
     role: roles.customer,
     username: 'hking',
     firstName: 'Henry',
@@ -147,6 +157,7 @@ export const users: Omit<User, 'id'>[] = [
     country: 'Finland',
   },
   {
+    id: 11,
     role: roles.customer,
     username: 'iweber',
     firstName: 'Isabel',

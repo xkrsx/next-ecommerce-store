@@ -1,8 +1,6 @@
 import { Sql } from 'postgres';
 import { users } from '../database/usersExample';
 
-// TODO: generate fake users
-
 export async function up(sql: Sql) {
   for (const user of users) {
     await sql`
