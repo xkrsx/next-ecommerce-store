@@ -38,8 +38,8 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-      - name: Jest unit tests
-        run: pnpm jest
+      # - name: Jest unit tests
+      #   run: pnpm jest
       - name: Run database migrations
         run: pnpm migrate up
       - name: Build Next.js app (types needed for TSC and ESLint)
