@@ -1,6 +1,12 @@
 import './page.scss';
 import Link from 'next/link';
 
+export function generateMetadata() {
+  return {
+    title: `Thank you for your order`,
+    description: `Ordered & paid! Now it's only waiting left... or browse our products again.`,
+  };
+
 export default function ThankYou() {
   return (
     <div className="content-wrapper">

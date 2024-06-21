@@ -45,6 +45,7 @@ export default function CartQuantity({ cartCount, stockCount, productId }) {
               min="0"
               max={stockCount}
               value={cartCountPreview}
+              data-test-id={`"cart-product-quantity-${productId}"`}
             />
 
             <button
@@ -63,6 +64,7 @@ export default function CartQuantity({ cartCount, stockCount, productId }) {
             <button
               className="remove-button"
               formAction={async () => await createOrUpdateCookie(productId, 0)}
+              data-test-id={`"cart-product-remove-${productId}"`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

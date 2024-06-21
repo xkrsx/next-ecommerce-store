@@ -13,6 +13,7 @@ export default function OrderPayButton({ totalValue }) {
         await deleteCookies();
         await router.push('/thank-you');
       }}
+      data-test-id="checkout-confirm-order"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

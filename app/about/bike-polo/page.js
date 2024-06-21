@@ -1,6 +1,13 @@
 import './page.scss';
 import Link from 'next/link';
 
+export function generateMetadata() {
+  return {
+    title: `About Bike Polo`,
+    description: `So you're into this riding in the circles, but don't know whom to ask? We are here for you!`,
+  };
+}
+
 export default function BikePolo() {
   return (
     <div className="content-wrapper">
