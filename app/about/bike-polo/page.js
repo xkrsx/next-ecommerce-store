@@ -17,8 +17,7 @@ export default function BikePolo() {
         <div className="video-description">
           <div className="video">
             <iframe
-              width="560"
-              height="315"
+              height="50%"
               src="https://www.youtube.com/embed/7FM4ZLJMoMQ?si=N-kQZKzkzEFWIBaV"
               title="YouTube video player"
               frameBorder="0"
