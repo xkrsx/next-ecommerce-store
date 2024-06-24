@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { getSingleProductInsecure } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
-import { totalCountCalc } from '../../util/product-calculator';
+import { totalValueCalc } from '../../util/product-calculator';
 import CartQuantity from '../common/CartQuantity/CartQuantity';
 import CheckoutButton from './CheckoutButton';
 
@@ -18,11 +18,7 @@ export function generateMetadata() {
 export default async function Cart() {
   const cookieCart = await getCookie('cart');
   const cart = !cookieCart ? [] : parseJson(cookieCart);
-  const productsInCart = await totalCountCalc();
-
-  const cartTotalValue = productsInCart.reduce((acc, product) => {
-    return acc + Number(product.price) * Number(product.count);
-  }, 0);
+  const totalValue = await totalValueCalc();
 
   const onlyCounts = cart.map((product) => {
     return product.count;
@@ -157,12 +153,12 @@ export default async function Cart() {
             <div className="total-value-count ">
               Cart total value:
               <p className="value" data-test-id="cart-total">
-                {cartTotalValue}
+                {totalValue}
               </p>{' '}
               €
             </div>
             <form>
-              <CheckoutButton />{' '}
+              <CheckoutButton />
             </form>
           </div>
         </div>
