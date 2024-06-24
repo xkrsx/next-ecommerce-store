@@ -37,6 +37,7 @@ export default function AddToCart({ stockCount, productId }) {
               disabled={!cartQuantity}
               onClick={handleQuantityChange}
               name="decreaseQuantity"
+              data-test-id="product-decrease-quantity"
             >
               -
             </button>
@@ -60,6 +61,7 @@ export default function AddToCart({ stockCount, productId }) {
                 cursor: cartQuantity >= stockCount ? 'not-allowed' : 'copy',
               }}
               name="increaseQuantity"
+              data-test-id="product-increase-quantity"
             >
               +
             </button>

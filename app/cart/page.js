@@ -1,7 +1,7 @@
 import './page.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import { getSingleProductInsecure } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
@@ -19,8 +19,6 @@ export default async function Cart() {
   const cookieCart = getCookie('cart');
   const cart = !cookieCart ? [] : parseJson(cookieCart);
   const productsInCart = await findProductInCookieCart();
-
-  const router = useRouter();
 
   const cartTotalValue = productsInCart.reduce((acc, product) => {
     return acc + Number(product.price) * Number(product.count);
@@ -167,7 +165,7 @@ export default async function Cart() {
               className="checkout-link"
               data-test-id="cart-checkout"
               onClick={async () => {
-                await router.push('/checkout');
+                await redirect('/checkout');
               }}
             >
               <svg
