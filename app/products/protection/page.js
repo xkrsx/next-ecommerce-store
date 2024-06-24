@@ -37,6 +37,7 @@ export default async function Protection() {
               </div>
             );
           }
+          return product;
         })}
       </div>
     </div>

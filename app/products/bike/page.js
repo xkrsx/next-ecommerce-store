@@ -35,6 +35,7 @@ export default async function Bike() {
               </div>
             );
           }
+          return product;
         })}
       </div>
     </div>

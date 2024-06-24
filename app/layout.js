@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header className="header"/>
+        <Header className="header" />
         <div className="main-content">{children}</div>
         <Footer className="footer" />
       </body>

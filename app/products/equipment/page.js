@@ -35,6 +35,7 @@ export default async function Equipment() {
               </div>
             );
           }
+          return product;
         })}
       </div>
     </div>
