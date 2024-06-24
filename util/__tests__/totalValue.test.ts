@@ -1,12 +1,14 @@
+'use server';
 // TODO test total price and count functions
 
 import { expect, test } from '@jest/globals';
+import { createOrUpdateCookie } from '../cookies';
+import { totalValueCalc } from '../product-calculator';
 
-test('should set cookie', async () => {
+test('total value should match', async () => {
   // execute actual logic
-  // await createOrUpdateCookie(1, 1);
-  // retrieve the result
-  // const resultCookie = getCookie('cart');
+  await createOrUpdateCookie(1, 1);
+  await createOrUpdateCookie(2, 1);
   // expects here
-  // expect(resultCookie['cart']).toEqual('[{"productId":1,"count":1}]');
+  expect(await totalValueCalc()).toEqual(420);
 });
