@@ -1,7 +1,7 @@
 'use client';
 import './AddToCart.scss';
 import { useState } from 'react';
-import { createOrUpdateCookie } from './actions.ts';
+import { createOrUpdateCookie } from '../../../util/cookies';
 
 export default function AddToCart({ stockCount, productId }) {
   const [cartQuantity, setCartQuantity] = useState(1);

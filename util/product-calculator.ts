@@ -1,11 +1,12 @@
-import { getAllProductsInsecure } from '../../database/products';
-import { getCookie } from '../../util/cookies';
-import { parseJson } from '../../util/json';
-import { CartCount } from '../common/AddToCart/actions';
+'use server';
 
-export async function findProductInCookieCart() {
+import { getAllProductsInsecure } from '../database/products';
+import { CartCount, getCookie } from './cookies';
+import { parseJson } from './json';
+
+export async function totalCountCalc() {
   const products = await getAllProductsInsecure();
-  const cookieCart = getCookie('cart');
+  const cookieCart = await getCookie('cart');
   const cart = !cookieCart ? [] : parseJson(cookieCart);
 
   const productsWithCounts = products.map((product) => {
