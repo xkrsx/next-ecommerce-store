@@ -32,6 +32,7 @@ export default function BikePolo() {
               referrerPolicy="strict-origin-when-cross-origin"
               allowfullscreen
               alt="Video about Bike Polo Tournament, Berlin Mixed 2018"
+              sandbox
             />
 
             <h3>Useful links:</h3>

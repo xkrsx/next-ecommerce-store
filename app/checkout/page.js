@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { getSingleProductInsecure } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
-import { cartCalculator } from './actions';
+import { totalValueCalc } from '../../util/product-calculator';
 import OrderPayButton from './OrderPayButton';
 
 export function generateMetadata() {
@@ -15,13 +15,9 @@ export function generateMetadata() {
 }
 
 export default async function Checkout() {
-  const cookieCart = getCookie('cart');
+  const cookieCart = await getCookie('cart');
   const cart = !cookieCart ? [] : parseJson(cookieCart);
-  const productsInCart = await cartCalculator();
-
-  const totalValue = productsInCart.reduce((acc, product) => {
-    return acc + Number(product.price) * Number(product.count);
-  }, 0);
+  const totalValue = await totalValueCalc();
 
   return (
     <div className="checkout-wrapper">

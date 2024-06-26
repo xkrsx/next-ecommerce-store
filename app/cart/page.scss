@@ -101,7 +101,7 @@
       }
     }
 
-    .checkout-link {
+    .checkout-button {
       margin: 0.8rem auto;
       height: 2.4rem;
       width: 8rem;
@@ -112,17 +112,15 @@
       opacity: 70%;
       display: flex;
       justify-content: center;
+      align-items: center;
+
       font-weight: 700;
       transition: 0.5s ease-in-out;
       cursor: pointer;
 
-      a {
-        display: flex;
-        align-items: center;
-      }
       &:hover {
         opacity: 100%;
-        scale: 1.2;
+        scale: 1.4;
       }
     }
   }

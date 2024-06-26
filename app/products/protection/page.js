@@ -1,7 +1,7 @@
 import './page.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getAllProductsInsecure } from '../../../database/products';
+import { getSingleCategoryProductsInsecure } from '../../../database/products';
 
 export function generateMetadata() {
   return {
@@ -11,7 +11,7 @@ export function generateMetadata() {
 }
 
 export default async function Protection() {
-  const products = await getAllProductsInsecure();
+  const products = await getSingleCategoryProductsInsecure('protection');
 
   // TODO solve map issue with no return
 
@@ -37,6 +37,7 @@ export default async function Protection() {
               </div>
             );
           }
+          return product;
         })}
       </div>
     </div>

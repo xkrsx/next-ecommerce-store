@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { getCookie } from '../../../util/cookies';
 import { parseJson } from '../../../util/json';
 
-export default function Header() {
-  const cartCountCookie = getCookie('cart');
+export default async function Header() {
+  const cartCountCookie = await getCookie('cart');
   const cartCounts = !cartCountCookie ? [] : parseJson(cartCountCookie);
   const onlyCounts = cartCounts.map((product) => {
     return product.count;

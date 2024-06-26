@@ -1,13 +1,8 @@
 'use client';
 import './CartQuantity.scss';
 import { useState } from 'react';
-import { createOrUpdateCookie } from '../AddToCart/actions';
+import { createOrUpdateCookie } from '../../../util/cookies';
 import UpdateCartCount from './actions';
-
-// TODO improve cart count adjust:
-// single click changes count (now 2, why?)
-// decreasing to 0 removes product from cart
-// remove the product from cart with button
 
 export default function CartQuantity({ cartCount, stockCount, productId }) {
   const [cartCountPreview, setCartCountPreview] = useState(cartCount);

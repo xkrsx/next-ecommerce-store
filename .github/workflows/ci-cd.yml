@@ -9,9 +9,9 @@ jobs:
     # Update env variables with your own database credentials
     env:
       PGHOST: localhost
-      PGDATABASE: ecommerce
-      PGUSERNAME: ecommerce
-      PGPASSWORD: ecommerce
+      PGDATABASE: next_js_example_spring_2024
+      PGUSERNAME: next_js_example_spring_2024
+      PGPASSWORD: next_js_example_spring_2024
     steps:
       - name: Start preinstalled PostgreSQL on Ubuntu
         run: |
@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       # - name: Jest unit tests
-      #   run: pnpm jest
+      #  run: pnpm jest
       - name: Run database migrations
         run: pnpm migrate up
       - name: Build Next.js app (types needed for TSC and ESLint)

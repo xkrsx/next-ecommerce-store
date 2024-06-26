@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { deleteCookies } from './actions';
+import { deleteCookies } from '../../util/cookies';
 
 export default function OrderPayButton({ totalValue }) {
   const router = useRouter();
